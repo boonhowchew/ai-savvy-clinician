@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Savvy Clinician — Prof. Dr. Boon-How Chew</title>
+<meta name="description" content="AI-Savvy Clinician: design or co-design an AI project with confidence. Based on ETEPAI — the ethical, technical, and epidemiological framework for AI tool production in healthcare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:       #1D9E75;
+  --teal-dark:  #0F6E56;
+  --teal-light: #E1F5EE;
+  --teal-pale:  #F0FAF6;
+  --green:      #3B6D11;
+  --green-mid:  #639922;
+  --green-light:#EAF3DE;
+  --amber:      #BA7517;
+  --amber-dark: #854F0B;
+  --amber-light:#FAEEDA;
+  --coral:      #D85A30;
+  --coral-dark: #993C1D;
+  --coral-light:#FAECE7;
+  --purple:     #7F77DD;
+  --purple-dark:#534AB7;
+  --purple-light:#EEEDFE;
+  --blue:       #185FA5;
+  --blue-light: #E6F1FB;
+  --ink:        #1A1A18;
+  --ink-2:      #3D3D3A;
+  --ink-3:      #6B6B67;
+  --ink-4:      #9C9A92;
+  --surface:    #F8F9FA;
+  --surface-2:  #F1F0EB;
+  --border:     rgba(26,26,24,0.11);
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+  --r:          10px;
+  --r-lg:       16px;
+  --max:        740px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-sans);background:var(--surface);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--teal-dark);text-decoration:underline;text-underline-offset:3px}
+a:hover{color:var(--teal)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+section{padding:2.75rem 0}
+section+section{border-top:1px solid var(--border)}
+
+#progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--teal);width:0%;z-index:200;transition:width .1s linear}
+
+/* NAV */
+#topnav{position:sticky;top:0;z-index:100;background:rgba(248,249,250,0.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0.75rem 1.25rem}
+.nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-brand{font-family:var(--font-serif);font-size:0.95rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav-brand span{color:var(--teal-dark)}
+.nav-links{display:flex;gap:0.2rem;flex-wrap:wrap}
+.nav-links a{font-size:0.72rem;font-weight:500;color:var(--ink-3);text-decoration:none;padding:0.28rem 0.55rem;border-radius:6px;transition:background .15s,color .15s}
+.nav-links a:hover,.nav-links a.active{background:var(--teal-light);color:var(--teal-dark)}
+
+/* SERIES BAR */
+.series-bar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:1rem}
+.sp{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;text-decoration:none}
+.s-done{background:var(--teal-light);color:var(--teal-dark)}
+.s-mid{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25)}
+.s-this{background:#fff;color:var(--teal-dark)}
+.s-arr{font-size:11px;color:rgba(255,255,255,0.5)}
+
+/* HERO */
+#hero{padding:3.5rem 0 2.75rem;background:linear-gradient(150deg,var(--teal-dark) 0%,#063d2c 100%);border-bottom:none}
+.hero-kicker{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9FE1CB;margin-bottom:1rem}
+.hero-title{font-family:var(--font-serif);font-size:clamp(1.9rem,5.5vw,2.8rem);line-height:1.15;color:#fff;margin-bottom:1.1rem}
+.hero-title em{font-style:italic;color:#9FE1CB}
+.hero-sub{font-size:0.9rem;color:rgba(255,255,255,0.78);max-width:530px;margin-bottom:1.75rem;line-height:1.75}
+.hero-meta{display:flex;flex-wrap:wrap;gap:0.65rem}
+.hero-pill{font-size:0.72rem;font-weight:500;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.22);padding:0.3rem 0.85rem;border-radius:20px}
+.hero-author{margin-top:2.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.18);font-size:0.78rem;color:rgba(255,255,255,0.55)}
+.hero-author strong{color:#fff;font-weight:500}
+
+/* SESSION THUMBNAILS */
+.sessions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:0.65rem;margin:1.5rem 0}
+.sthumb{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);text-decoration:none;display:block;transition:transform .18s,box-shadow .18s}
+.sthumb:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.sthumb-head{padding:0.9rem 1rem 0.7rem}
+.sthumb-num{font-size:0.68rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;opacity:0.75;margin-bottom:0.3rem}
+.sthumb-title{font-family:var(--font-serif);font-size:0.95rem;line-height:1.3;color:#fff}
+.sthumb-foot{padding:0.55rem 1rem;background:rgba(0,0,0,0.15);font-size:0.7rem;color:rgba(255,255,255,0.72)}
+.c-s1{background:var(--teal-dark)}
+.c-s2{background:#1A6B4A}
+.c-s3{background:var(--amber-dark)}
+.c-s4{background:var(--coral-dark)}
+.c-s5{background:var(--purple-dark)}
+
+/* SECTION HEADERS */
+.sess-eyebrow{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.45rem}
+.sess-title{font-family:var(--font-serif);font-size:clamp(1.4rem,3.5vw,1.9rem);line-height:1.2;margin-bottom:0.65rem}
+.sess-desc{font-size:0.875rem;color:var(--ink-3);max-width:550px}
+.sess-meta{display:flex;gap:0.45rem;flex-wrap:wrap;margin-top:0.875rem}
+.tag{font-size:0.68rem;font-weight:500;padding:0.22rem 0.65rem;border-radius:20px;border:1px solid currentColor}
+
+/* CONTENT */
+.prose{font-size:0.875rem;color:var(--ink-2)}
+.prose p{margin-bottom:0.875rem}
+.prose p:last-child{margin-bottom:0}
+.prose strong{color:var(--ink);font-weight:600}
+
+.callout{border-radius:var(--r);padding:0.9rem 1.05rem;margin:1.1rem 0;font-size:0.85rem}
+.callout-teal{background:var(--teal-light);border-left:3px solid var(--teal);color:var(--teal-dark)}
+.callout-green{background:var(--green-light);border-left:3px solid var(--green-mid);color:var(--green)}
+.callout-amber{background:var(--amber-light);border-left:3px solid var(--amber);color:var(--amber-dark)}
+.callout-coral{background:var(--coral-light);border-left:3px solid var(--coral);color:var(--coral-dark)}
+.callout-purple{background:var(--purple-light);border-left:3px solid var(--purple);color:var(--purple-dark)}
+.callout-title{font-weight:600;margin-bottom:0.25rem;font-size:0.78rem;letter-spacing:0.03em}
+
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1rem 1.2rem;margin-bottom:0.7rem}
+.card-title{font-weight:600;font-size:0.875rem;margin-bottom:0.35rem;color:var(--ink)}
+.card-body{font-size:0.83rem;color:var(--ink-3);line-height:1.65}
+
+h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-4);margin:1.6rem 0 0.7rem}
+
+.list-clean{list-style:none;padding:0}
+.list-clean li{font-size:0.85rem;color:var(--ink-2);padding:0.42rem 0 0.42rem 1.2rem;position:relative;border-bottom:1px solid var(--border)}
+.list-clean li:last-child{border-bottom:none}
+.list-clean li::before{content:'';position:absolute;left:0;top:0.82rem;width:6px;height:6px;border-radius:50%}
+.l-teal li::before{background:var(--teal)}
+.l-green li::before{background:var(--green-mid)}
+.l-amber li::before{background:var(--amber)}
+.l-coral li::before{background:var(--coral)}
+.l-purple li::before{background:var(--purple)}
+
+/* ETEPAI MATRIX — interactive stage/domain grid */
+.matrix-wrap{overflow-x:auto;margin:1rem 0}
+.matrix{border-collapse:collapse;width:100%;min-width:480px;font-size:0.8rem}
+.matrix th,.matrix td{border:1px solid var(--border);padding:0.55rem 0.7rem;vertical-align:top;line-height:1.55}
+.matrix th{font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;background:var(--surface-2);color:var(--ink-3)}
+.matrix td.domain-eth{background:#F0FAF6;color:var(--teal-dark)}
+.matrix td.domain-tech{background:#FAEEDA;color:var(--amber-dark)}
+.matrix td.domain-epi{background:#EEEDFE;color:var(--purple-dark)}
+.matrix td ul{margin-left:1rem;margin-top:0.25rem}
+.matrix td li{margin-bottom:0.2rem}
+.matrix td strong{font-weight:600}
+
+/* PROBING QUESTIONS — accordion */
+.probe-stage{margin-bottom:0.75rem;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.probe-head{padding:0.8rem 1.1rem;cursor:pointer;user-select:none;background:var(--surface-2);display:flex;justify-content:space-between;align-items:center;transition:background .15s}
+.probe-head:hover{background:#fff}
+.probe-title{font-size:0.875rem;font-weight:600;color:var(--ink)}
+.probe-badge{font-size:0.68rem;font-weight:600;padding:2px 8px;border-radius:4px}
+.probe-chevron{font-size:0.72rem;color:var(--ink-4);transition:transform .2s}
+.probe-stage.open .probe-chevron{transform:rotate(180deg)}
+.probe-body{display:none;padding:1rem 1.1rem;border-top:1px solid var(--border);background:#fff}
+.probe-stage.open .probe-body{display:block}
+.probe-q{font-size:0.83rem;color:var(--ink-2);margin-bottom:0.4rem;padding-left:1.1rem;position:relative;line-height:1.6}
+.probe-q::before{content:'?';position:absolute;left:0;color:var(--teal);font-weight:600;font-size:0.75rem;top:0.1rem}
+
+/* PITFALLS TABLE */
+.pitfall-row{border:0.5px solid var(--border);border-radius:var(--r);padding:0.8rem 1rem;margin-bottom:0.55rem;background:#fff}
+.pitfall-head{display:flex;gap:0.75rem;align-items:flex-start}
+.pitfall-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.pi-coral{background:var(--coral-light);color:var(--coral-dark)}
+.pitfall-name{font-size:0.875rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.pitfall-desc{font-size:0.8rem;color:var(--ink-3);line-height:1.6}
+.pitfall-fix{font-size:0.78rem;color:var(--teal-dark);margin-top:0.4rem;font-style:italic}
+
+/* TEAM BUILDER */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin:1rem 0}
+.team-card{border:1px solid var(--border);border-radius:var(--r);padding:0.75rem 0.9rem;background:#fff;cursor:pointer;transition:border-color .15s,background .15s}
+.team-card:hover{border-color:var(--teal);background:var(--teal-pale)}
+.team-card.selected{border-color:var(--teal);background:var(--teal-light)}
+.team-role{font-size:0.83rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.team-desc{font-size:0.75rem;color:var(--ink-3);line-height:1.5}
+.team-tag{font-size:0.65rem;font-weight:600;padding:1px 6px;border-radius:4px;display:inline-block;margin-top:4px}
+.tt-essential{background:var(--teal-light);color:var(--teal-dark)}
+.tt-required{background:var(--amber-light);color:var(--amber-dark)}
+.tt-optional{background:var(--surface-2);color:var(--ink-3)}
+.team-summary{background:var(--surface-2);border-radius:var(--r);padding:0.75rem 1rem;font-size:0.83rem;color:var(--ink-2);margin-top:0.75rem;min-height:44px}
+
+/* QUIZ */
+.quiz-block{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin:1.6rem 0}
+.quiz-header{background:var(--surface-2);padding:0.7rem 1rem;display:flex;align-items:center;gap:0.5rem}
+.quiz-badge{font-size:0.63rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:var(--teal-dark);color:#fff;padding:0.2rem 0.55rem;border-radius:4px}
+.quiz-title-text{font-size:0.78rem;font-weight:500;color:var(--ink-2)}
+.quiz-body{padding:1.05rem}
+.quiz-q{font-size:0.875rem;font-weight:500;color:var(--ink);margin-bottom:0.85rem;line-height:1.55}
+.quiz-options{display:flex;flex-direction:column;gap:0.4rem}
+.quiz-opt{display:flex;align-items:flex-start;gap:0.6rem;padding:0.6rem 0.8rem;border-radius:var(--r);border:1.5px solid var(--border);cursor:pointer;font-size:0.83rem;color:var(--ink-2);line-height:1.5;transition:border-color .15s,background .15s;background:var(--surface);user-select:none}
+.quiz-opt:hover{border-color:var(--teal);background:var(--teal-pale)}
+.quiz-opt.correct{border-color:var(--teal);background:var(--teal-light);color:var(--teal-dark)}
+.quiz-opt.incorrect{border-color:var(--coral);background:var(--coral-light);color:var(--coral-dark)}
+.quiz-opt.disabled{cursor:default;pointer-events:none}
+.quiz-opt.dimmed{opacity:0.4}
+.opt-icon{width:17px;height:17px;border-radius:50%;border:1.5px solid currentColor;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700}
+.quiz-feedback{margin-top:0.85rem;padding:0.7rem 0.875rem;border-radius:var(--r);font-size:0.81rem;line-height:1.6;display:none}
+.quiz-feedback.show{display:block}
+.fb-correct{background:var(--teal-light);color:var(--teal-dark)}
+.fb-incorrect{background:var(--coral-light);color:var(--coral-dark)}
+.fb-label{font-weight:700;margin-bottom:0.2rem;font-size:0.72rem;letter-spacing:0.04em;text-transform:uppercase}
+.quiz-reset{margin-top:0.55rem;font-size:0.75rem;color:var(--ink-4);cursor:pointer;text-decoration:underline;display:none}
+.quiz-reset:hover{color:var(--teal-dark)}
+
+/* PROPOSAL TEMPLATE */
+.proposal-section{border:0.5px solid var(--border);border-radius:var(--r);padding:0.75rem 1rem;margin-bottom:0.5rem;background:#fff;cursor:pointer}
+.proposal-section:hover{border-color:var(--teal);background:var(--teal-pale)}
+.proposal-head{display:flex;justify-content:space-between;align-items:center}
+.proposal-num{font-size:0.68rem;font-weight:700;color:var(--teal-dark);margin-right:0.5rem}
+.proposal-title{font-size:0.875rem;font-weight:600;color:var(--ink)}
+.proposal-body{display:none;font-size:0.82rem;color:var(--ink-2);line-height:1.7;margin-top:0.6rem;padding-top:0.6rem;border-top:0.5px solid var(--border)}
+.proposal-body.open{display:block}
+
+/* READING */
+.reading-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:0.9rem 1rem;margin-bottom:0.6rem;display:flex;gap:0.85rem;align-items:flex-start}
+.ricon{width:32px;height:32px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:700}
+.ri-teal{background:var(--teal-light);color:var(--teal-dark)}
+.ri-amber{background:var(--amber-light);color:var(--amber-dark)}
+.ri-purple{background:var(--purple-light);color:var(--purple-dark)}
+.ri-blue{background:var(--blue-light);color:var(--blue)}
+.ri-coral{background:var(--coral-light);color:var(--coral-dark)}
+.ri-gray{background:var(--surface-2);color:var(--ink-3)}
+.rbody{flex:1;min-width:0}
+.rjournal{font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.18rem}
+.rtitle{font-size:0.83rem;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:0.28rem}
+.rnote{font-size:0.76rem;color:var(--ink-3);line-height:1.5;margin-bottom:0.35rem}
+.rlink{font-size:0.72rem;font-weight:500;color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-light);transition:border-color .15s}
+.rlink:hover{border-color:var(--teal)}
+
+.divider{height:1px;background:var(--border);margin:1.4rem 0}
+
+#btt{position:fixed;bottom:1.2rem;right:1.2rem;width:36px;height:36px;border-radius:50%;background:var(--teal-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.85rem;cursor:pointer;opacity:0;transition:opacity .2s;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+#btt.show{opacity:1}
+
+#footer{background:var(--ink);color:rgba(255,255,255,0.5);padding:2.25rem 1.25rem;font-size:0.78rem;text-align:center;line-height:1.8}
+#footer strong{color:#fff;font-weight:500}
+#footer a{color:rgba(255,255,255,0.65)}
+
+@media(max-width:480px){
+  .nav-links a{font-size:0.68rem;padding:0.22rem 0.42rem}
+  section{padding:2rem 0}
+  .hero-title{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav id="topnav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#hero">AI-Savvy <span>Clinician</span></a>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#session1">S1</a>
+      <a href="#session2">S2</a>
+      <a href="#session3">S3</a>
+      <a href="#session4">S4</a>
+      <a href="#session5">S5</a>
+      <a href="#proposal">Proposal</a>
+      <a href="#resources">Resources</a>
+      <a href="#mystory">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="border-top:none;">
+  <div class="wrap">
+    <div class="series-bar">
+      <a href="https://boonhowchew.github.io/ai-ready-clinician/" target="_blank" rel="noopener" class="sp s-done" style="text-decoration:none;">AI-Ready Clinician ✓</a>
+      <span class="s-arr">→</span>
+      <a href="#" class="sp s-mid" style="text-decoration:none;opacity:0.7;">AI-Steady Clinician</a>
+      <span class="s-arr">→</span>
+      <span class="sp s-this">AI-Savvy Clinician</span>
+    </div>
+    <p class="hero-kicker">A clinician-led learning programme · third in a three-part series</p>
+    <h1 class="hero-title">AI-Savvy<br><em>Clinician</em></h1>
+    <p class="hero-sub">Design or co-design an AI project with the right team, the right ethical foundations, and the right technical rigour — from idea to implementation. Based on ETEPAI (Chew &amp; Ngiam, JMIR AI 2026).</p>
+    <div class="hero-meta">
+      <span class="hero-pill">5 sessions · ~6 hrs total</span>
+      <span class="hero-pill">AI-Steady graduates</span>
+      <span class="hero-pill">ETEPAI framework</span>
+      <span class="hero-pill">AI proposal template included</span>
+    </div>
+    <div class="hero-author">
+      Designed and facilitated by <strong>Prof. Dr. Boon-How Chew</strong><br>
+      Professor of Family Medicine, UPM &nbsp;·&nbsp; Senior Consultant Family Medicine Specialist, HSAAS
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="wrap">
+    <h3 class="blk">Why AI-Savvy Clinician?</h3>
+    <div class="prose">
+      <p>AI-Ready Clinician gave you the confidence to engage. AI-Steady Clinician gave you the knowledge to evaluate. <strong>AI-Savvy Clinician gives you the capability to create.</strong></p>
+      <p>There is a proliferation of guidelines, checklists, and frameworks for AI tool development — so many that developers and stakeholders often feel overwhelmed and overlook the most essential practices. ETEPAI solves this by integrating 30 frameworks into one compact, comprehensive guide structured across <strong>4 stages</strong> and <strong>3 domains</strong>. This programme teaches you to apply it.</p>
+      <p>By the end of this programme, you will be able to design or co-design an AI project with the right team composition, the right ethical safeguards, the right technical standards, and the right epidemiological rigour — with confidence.</p>
+    </div>
+
+    <div class="callout callout-teal">
+      <div class="callout-title">The ETEPAI framework in one sentence</div>
+      Comprehensive, complete, compact, and crisp consideration from conception to execution — promoting high-quality, ethically sound, and clinically relevant AI tools across four stages (Design → Develop → Deploy → Post-deployment) and three domains (Ethics · Technical · Epidemiological).
+    </div>
+
+    <div class="sessions-grid">
+      <a class="sthumb c-s1" href="#session1">
+        <div class="sthumb-head">
+          <div class="sthumb-num" style="color:#9FE1CB;">Session 1</div>
+          <div class="sthumb-title">The ETEPAI framework &amp; readiness probes</div>
+        </div>
+        <div class="sthumb-foot">75 min · Orientation</div>
+      </a>
+      <a class="sthumb c-s2" href="#session2">
+        <div class="sthumb-head">
+          <div class="sthumb-num" style="color:#C0DD97;">Session 2</div>
+          <div class="sthumb-title">Design stage — ethics, technical &amp; epi</div>
+        </div>
+        <div class="sthumb-foot">75 min · Research design</div>
+      </a>
+      <a class="sthumb c-s3" href="#session3">
+        <div class="sthumb-head">
+          <div class="sthumb-num" style="color:#FAC775;">Session 3</div>
+          <div class="sthumb-title">Development stage — building with rigour</div>
+        </div>
+        <div class="sthumb-foot">75 min · Technical execution</div>
+      </a>
+      <a class="sthumb c-s4" href="#session4">
+        <div class="sthumb-head">
+          <div class="sthumb-num" style="color:#F5C4B3;">Session 4</div>
+          <div class="sthumb-title">Deploy &amp; post-deployment</div>
+        </div>
+        <div class="sthumb-foot">75 min · Real-world integration</div>
+      </a>
+      <a class="sthumb c-s5" href="#session5">
+        <div class="sthumb-head">
+          <div class="sthumb-num" style="color:#CECBF6;">Session 5</div>
+          <div class="sthumb-title">Pitfalls, team building &amp; capstone</div>
+        </div>
+        <div class="sthumb-foot">90 min · Applied capstone</div>
+      </a>
+    </div>
+
+    <h3 class="blk">The ETEPAI structure at a glance</h3>
+    <p style="font-size:0.83rem;color:var(--ink-3);margin-bottom:0.75rem;">Four stages × three domains = twelve cells of critical considerations. Every AI project should be able to answer the questions in each cell.</p>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th style="width:15%">Stage</th>
+            <th style="width:28%;background:#E1F5EE;color:#0F6E56;">Ethics domain</th>
+            <th style="width:28%;background:#FAEEDA;color:#854F0B;">Technical domain</th>
+            <th style="width:28%;background:#EEEDFE;color:#534AB7;">Epidemiological domain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Design</strong></td>
+            <td class="domain-eth">Patient safety, stakeholder engagement, PDPA compliance, informed consent framework, fairness by design</td>
+            <td class="domain-tech">Problem framing, algorithm selection, team assembly, infrastructure planning, data governance</td>
+            <td class="domain-epi">Clinical question formulation, study design selection, outcome definition, population representativeness, sample size</td>
+          </tr>
+          <tr>
+            <td><strong>2. Develop</strong></td>
+            <td class="domain-eth">Bias detection protocols, transparency commitments, audit trails, intellectual property, data sharing agreements</td>
+            <td class="domain-tech">Data preprocessing, model training, hyperparameter tuning, version control, code documentation, internal validation</td>
+            <td class="domain-epi">Labelling strategy, class balance, confounding management, inter-rater reliability, performance metric selection</td>
+          </tr>
+          <tr>
+            <td><strong>3. Deploy</strong></td>
+            <td class="domain-eth">Informed consent for patients, equitable access, alert design to prevent fatigue, clinician override mechanisms</td>
+            <td class="domain-tech">Integration with clinical systems, sandboxing, user interface design, staff training, rollback procedures</td>
+            <td class="domain-epi">External validation, decision curve analysis, health technology assessment, early impact studies</td>
+          </tr>
+          <tr>
+            <td><strong>4. Post-deployment</strong></td>
+            <td class="domain-eth">Ongoing surveillance for harm, equity monitoring, accountability structures, governance escalation pathways</td>
+            <td class="domain-tech">Performance monitoring, drift detection, model updates, MLOps pipeline, incident reporting</td>
+            <td class="domain-epi">Prospective validation, real-world evidence studies, RCTs where applicable, health economic evaluation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION 1 -->
+<section id="session1">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--teal);">Session 1 · 75 min · Orientation</p>
+    <h2 class="sess-title">The ETEPAI framework<br>&amp; readiness probes</h2>
+    <p class="sess-desc">Understand why ETEPAI was created, how it differs from existing frameworks, and how to use the probing questions to assess whether your project is ready to proceed at each stage.</p>
+    <div class="sess-meta">
+      <span class="tag" style="color:var(--teal-dark);border-color:var(--teal-light);">Framework orientation</span>
+      <span class="tag" style="color:var(--teal-dark);border-color:var(--teal-light);">Readiness assessment</span>
+    </div>
+    <div class="divider"></div>
+
+    <h3 class="blk">Why ETEPAI? The proliferation problem</h3>
+    <div class="prose">
+      <p>There are now over 30 major guidelines, checklists, and frameworks for AI tool development in healthcare. Each is valuable. But overwhelmed by many similar yet different and lengthy referent materials, developers and stakeholders may overlook the most relevant and essential practices — rendering good materials less effective and <strong>stalling improvement in AI tool production</strong>.</p>
+      <p>Common consequences: lack of data and code availability, absence of or small human comparator groups, shortage of real-world clinical relevance, transparency failures, and inappropriate conclusions — causing high risk of bias and research waste. ETEPAI was created to integrate 30 frameworks into one compact yet comprehensive guide.</p>
+    </div>
+
+    <div class="callout callout-teal">
+      <div class="callout-title">What makes ETEPAI different</div>
+      ETEPAI is not another checklist to replace the others. It is an annotated content page — like a book's table of contents — that signposts you to the necessity of each step and directs you to the right referenced materials for deeper reading. It is comprehensive enough for trained personnel and clear enough as a guide for unprepared stakeholders.
+    </div>
+
+    <h3 class="blk">The three domains explained</h3>
+    <div class="card">
+      <div class="card-title" style="color:var(--teal-dark);">Ethics domain</div>
+      <div class="card-body">Addresses the moral dimensions of AI tool development: patient safety, fairness, transparency, accountability, data rights, and the societal impacts of algorithmic decision-making. Aligns with EU trustworthiness standards, WHO AI ethics principles, and local regulatory requirements (e.g. MMC guideline). Every stage has ethical obligations that cannot be deferred to post-deployment.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:var(--amber-dark);">Technical domain</div>
+      <div class="card-body">Covers the engineering and data science requirements: problem framing, data curation, model building, infrastructure, validation pipelines, deployment architecture, and post-deployment monitoring. The clinician does not need to execute these — but must know enough to ask the right questions and detect when corners are being cut.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:var(--purple-dark);">Epidemiological domain</div>
+      <div class="card-body">Applies the rigour of clinical research methods to AI tool development: study design, outcome definition, population selection, sample size, bias control, statistical analysis, and real-world evidence generation. This is the domain where clinicians have the most unique expertise — and where AI projects most frequently fall short.</div>
+    </div>
+
+    <h3 class="blk">Probing questions — are you ready to proceed?</h3>
+    <p style="font-size:0.83rem;color:var(--ink-3);margin-bottom:0.75rem;">These questions are asked before entering each stage. If you cannot answer them, the project is not yet ready to proceed. Tap each stage to expand.</p>
+
+    <div class="probe-stage" id="probe-design">
+      <div class="probe-head" onclick="toggleProbe('probe-design')">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span class="probe-badge" style="background:var(--teal-light);color:var(--teal-dark);">Stage 1</span>
+          <span class="probe-title">Design — readiness probes</span>
+        </div>
+        <span class="probe-chevron">▼</span>
+      </div>
+      <div class="probe-body">
+        <div class="probe-q">Is this a real clinical problem that AI can genuinely help solve — or is this an AI solution looking for a problem?</div>
+        <div class="probe-q">Have you defined the clinical problem in terms of a measurable outcome, a target population, and a specific clinical setting?</div>
+        <div class="probe-q">Have you identified all relevant stakeholders — clinicians, patients, data custodians, ethicists, administrators — and planned for their involvement?</div>
+        <div class="probe-q">Do you have access to sufficient, representative, and high-quality data, or a realistic plan to obtain it?</div>
+        <div class="probe-q">Have you obtained or planned for ethical approval, data governance agreements, and PDPA compliance?</div>
+        <div class="probe-q">Is the intended use diagnostic, predictive, prescriptive, or administrative — and does your study design match this intent?</div>
+        <div class="probe-q">What happens if the AI tool fails, gives wrong outputs, or is misused? Have you mapped out the risk scenarios?</div>
+      </div>
+    </div>
+
+    <div class="probe-stage" id="probe-develop">
+      <div class="probe-head" onclick="toggleProbe('probe-develop')">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span class="probe-badge" style="background:var(--amber-light);color:var(--amber-dark);">Stage 2</span>
+          <span class="probe-title">Development — readiness probes</span>
+        </div>
+        <span class="probe-chevron">▼</span>
+      </div>
+      <div class="probe-body">
+        <div class="probe-q">Are your data labels clinically meaningful and consistently applied? What is the inter-rater reliability of your annotators?</div>
+        <div class="probe-q">Is your training dataset representative of the population your model will be deployed on — in terms of age, sex, ethnicity, and disease severity?</div>
+        <div class="probe-q">Have you planned for information leakage prevention — particularly temporal leakage and train-test contamination?</div>
+        <div class="probe-q">Which performance metrics will you use, and are they appropriate for the clinical task? (Sensitivity/specificity for screening, AUC for discrimination, calibration for probability estimation?)</div>
+        <div class="probe-q">How will you assess fairness — specifically, will the model perform equitably across demographic subgroups relevant to your patient population?</div>
+        <div class="probe-q">Is your code version-controlled, documented, and reproducible? Can another team replicate your results?</div>
+      </div>
+    </div>
+
+    <div class="probe-stage" id="probe-deploy">
+      <div class="probe-head" onclick="toggleProbe('probe-deploy')">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span class="probe-badge" style="background:var(--coral-light);color:var(--coral-dark);">Stage 3</span>
+          <span class="probe-title">Deployment — readiness probes</span>
+        </div>
+        <span class="probe-chevron">▼</span>
+      </div>
+      <div class="probe-body">
+        <div class="probe-q">Has the model been externally validated on data from a different institution, time period, or population to the training set?</div>
+        <div class="probe-q">Has sandboxing been completed — has the tool run in a real clinical environment without affecting care decisions, allowing performance assessment?</div>
+        <div class="probe-q">Is the tool registered with the relevant regulatory authority if it meets the definition of a medical device?</div>
+        <div class="probe-q">Is there a clinician override mechanism built in — can clinical staff accept, reject, or modify the tool's recommendation without friction?</div>
+        <div class="probe-q">Has the alert interface been designed to minimise alert fatigue — are thresholds, timing, and presentation optimised with clinical staff input?</div>
+        <div class="probe-q">Are staff trained? Is there a clearly communicated escalation pathway for unexpected or concerning outputs?</div>
+      </div>
+    </div>
+
+    <div class="probe-stage" id="probe-postdeploy">
+      <div class="probe-head" onclick="toggleProbe('probe-postdeploy')">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span class="probe-badge" style="background:var(--purple-light);color:var(--purple-dark);">Stage 4</span>
+          <span class="probe-title">Post-deployment — readiness probes</span>
+        </div>
+        <span class="probe-chevron">▼</span>
+      </div>
+      <div class="probe-body">
+        <div class="probe-q">What performance metrics are being monitored continuously — and what threshold triggers a model review or withdrawal?</div>
+        <div class="probe-q">Is there a mechanism for clinical staff to report unexpected model behaviour, near misses, or patient harm?</div>
+        <div class="probe-q">How will you detect model drift — the gradual degradation of performance as patient populations, clinical practices, or data collection methods change over time?</div>
+        <div class="probe-q">Is a prospective real-world evidence study or RCT planned to evaluate actual clinical impact — not just model performance metrics?</div>
+        <div class="probe-q">Is there a health economic evaluation planned — does the benefit justify the cost of continued deployment?</div>
+        <div class="probe-q">Who owns the ongoing governance of this tool — and is that accountability clear, resourced, and exercised?</div>
+      </div>
+    </div>
+
+    <!-- QUIZ 1 -->
+    <div class="quiz-block">
+      <div class="quiz-header"><span class="quiz-badge">Reflection</span><span class="quiz-title-text">Session 1 — Check your understanding</span></div>
+      <div class="quiz-body">
+        <div class="quiz-q">A colleague proposes an AI project to predict which patients will miss their follow-up appointments. She has access to 3 years of EMR data but has not yet formed a team, obtained ethics approval, or defined the outcome clearly. According to ETEPAI, what should happen next?</div>
+        <div class="quiz-options" id="q1">
+          <div class="quiz-opt" onclick="answer(this,'q1','wrong')"><div class="opt-icon"></div>Begin data extraction immediately — time is short and the data is available.</div>
+          <div class="quiz-opt" onclick="answer(this,'q1','correct')"><div class="opt-icon"></div>Apply the Design stage readiness probes — outcome definition, team assembly, ethics approval, and data governance must be addressed before any data work begins.</div>
+          <div class="quiz-opt" onclick="answer(this,'q1','wrong')"><div class="opt-icon"></div>Skip to the Development stage — the data is the foundation and everything else follows from it.</div>
+          <div class="quiz-opt" onclick="answer(this,'q1','wrong')"><div class="opt-icon"></div>The project should be abandoned — prediction of missed appointments is not a clinically meaningful problem.</div>
+        </div>
+        <div class="quiz-feedback fb-correct" id="q1-fb-correct">
+          <div class="fb-label">Correct</div>
+          The probing questions for the Design stage exist precisely for this situation. Undefined outcomes, absent ethics approval, missing team, and no data governance plan are Design stage failures. Beginning data extraction now risks building a model that solves the wrong problem, uses improperly governed data, and can never be deployed. ETEPAI's Design stage probes would surface all of these gaps before any technical work begins.
+        </div>
+        <div class="quiz-feedback fb-incorrect" id="q1-fb-incorrect">
+          <div class="fb-label">Not quite</div>
+          The ETEPAI Design stage requires answering specific readiness probes before proceeding: outcome must be defined, team assembled, ethics approval obtained, data governance established. Skipping these for any reason — even available data or time pressure — produces models that cannot be safely deployed. The project is not abandoned; it is correctly staged.
+        </div>
+        <div class="quiz-reset" onclick="resetQuiz('q1')" id="q1-reset">Try again</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION 2 -->
+<section id="session2">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--green-mid);">Session 2 · 75 min · Research design</p>
+    <h2 class="sess-title">Design stage —<br>ethics, technical &amp; epidemiological</h2>
+    <p class="sess-desc">The design stage aligns AI tool development with epidemiological research methodology. Getting this right determines everything that follows. This is where clinicians contribute most uniquely.</p>
+    <div class="sess-meta">
+      <span class="tag" style="color:var(--green);border-color:var(--green-light);">Stage 1: Design</span>
+      <span class="tag" style="color:var(--green);border-color:var(--green-light);">Ethics · Technical · Epi</span>
+    </div>
+    <div class="divider"></div>
+
+    <h3 class="blk">Ethics domain — design stage</h3>
+    <ul class="list-clean l-teal">
+      <li><strong>Beneficence and non-maleficence</strong> — articulate clearly how this tool benefits patients and what harms it could cause. Map risk scenarios before any development begins.</li>
+      <li><strong>Fairness by design</strong> — identify which patient subgroups might be disadvantaged. Plan data collection and validation to actively test for disparate performance across sex, age, ethnicity, and socioeconomic status.</li>
+      <li><strong>Transparency and explainability</strong> — decide now whether the clinical context requires an explainable model (high-stakes decisions) or whether a black-box model is acceptable (lower-stakes administrative tasks).</li>
+      <li><strong>Data rights and consent</strong> — is the use of this data covered by existing consents? Does the PDPA framework require new consent? What are the data sharing agreement requirements?</li>
+      <li><strong>Stakeholder engagement</strong> — have patients been involved in defining the problem? Have frontline staff who will use the tool been consulted on its design?</li>
+      <li><strong>Conflict of interest</strong> — are there commercial interests that could bias tool development? Are funding sources declared and governance structures independent?</li>
+    </ul>
+
+    <h3 class="blk">Technical domain — design stage</h3>
+    <ul class="list-clean l-amber">
+      <li><strong>Problem framing</strong> — is this a classification, regression, clustering, or generation task? The algorithm family follows from the problem type, not from what is fashionable.</li>
+      <li><strong>Algorithm selection rationale</strong> — document why this algorithm family was chosen over alternatives. Simpler models that perform well are usually preferable to complex models that are marginally better but opaque.</li>
+      <li><strong>Data availability audit</strong> — catalogue what data exists, in what format, with what quality issues, under what governance, and in whose custody.</li>
+      <li><strong>Infrastructure planning</strong> — cloud vs on-premise vs federated? Who maintains the infrastructure? What are the cost and security implications?</li>
+      <li><strong>Team composition</strong> — has the full required team been identified, including clinical champion, data scientist, ML engineer, data governance officer, ethicist, and patient representative?</li>
+    </ul>
+
+    <h3 class="blk">Epidemiological domain — design stage</h3>
+    <div class="callout callout-purple">
+      <div class="callout-title">The design stage aligns with epidemiological research methodology</div>
+      This is the domain where clinicians are most expert — and most needed. Every AI tool is ultimately a clinical study. It has a research question, a study design, a target population, an exposure (the AI input), an outcome (the prediction target), and sources of bias. Applying epidemiological rigour at the design stage prevents the most common and most serious failures.
+    </div>
+    <ul class="list-clean l-purple">
+      <li><strong>PICO framework</strong> — Population (who?), Intervention (what does the AI do?), Comparator (compared to what — clinician decision alone? existing tool?), Outcome (what measurable change in care or outcomes?)</li>
+      <li><strong>Study design</strong> — diagnostic accuracy study? Prediction model study (TRIPOD-AI)? Clinical trial (CONSORT-AI)? The design determines the reporting framework required.</li>
+      <li><strong>Outcome definition</strong> — what is the ground truth? How is it measured, by whom, with what inter-rater agreement? Poorly defined outcomes produce unreliable models.</li>
+      <li><strong>Sample size</strong> — how many cases are needed for adequate model training and separate validation? Rule of thumb: at least 10 events per variable for prediction models — often requiring thousands of clinical events.</li>
+      <li><strong>Selection bias</strong> — does your dataset systematically exclude certain patients? Missing data is rarely random in clinical settings.</li>
+    </ul>
+
+    <!-- QUIZ 2 -->
+    <div class="quiz-block">
+      <div class="quiz-header"><span class="quiz-badge">Reflection</span><span class="quiz-title-text">Session 2 — Check your understanding</span></div>
+      <div class="quiz-body">
+        <div class="quiz-q">A data scientist on your team argues: "We should use a deep learning model because it will get the highest AUC." A clinical colleague counters: "We should use logistic regression so we can explain the prediction to the patient." Which ETEPAI domain is at the centre of this disagreement, and what principle should guide the decision?</div>
+        <div class="quiz-options" id="q2">
+          <div class="quiz-opt" onclick="answer(this,'q2','wrong')"><div class="opt-icon"></div>Technical domain — the highest AUC model should always be chosen.</div>
+          <div class="quiz-opt" onclick="answer(this,'q2','correct')"><div class="opt-icon"></div>Both the Ethics domain (explainability/transparency) and Technical domain (algorithm selection) are in tension — and the clinical context should determine the balance.</div>
+          <div class="quiz-opt" onclick="answer(this,'q2','wrong')"><div class="opt-icon"></div>Epidemiological domain — the choice of model affects the study design reporting requirements.</div>
+          <div class="quiz-opt" onclick="answer(this,'q2','wrong')"><div class="opt-icon"></div>This is a data scientist decision, not a clinical one — clinicians should defer on technical choices.</div>
+        </div>
+        <div class="quiz-feedback fb-correct" id="q2-fb-correct">
+          <div class="fb-label">Well reasoned</div>
+          ETEPAI's design stage explicitly requires deciding whether the clinical context demands explainability before choosing an algorithm. A model predicting sepsis that cannot explain its reasoning to the treating clinician is ethically problematic — regardless of its AUC. A model for administrative risk stratification may not need the same level of explainability. The clinical context resolves the technical disagreement — this is exactly why clinician involvement in the design stage is irreplaceable.
+        </div>
+        <div class="quiz-feedback fb-incorrect" id="q2-fb-incorrect">
+          <div class="fb-label">Look again</div>
+          This is a classic tension between the Ethics domain (explainability, transparency, patient rights) and the Technical domain (algorithm selection, performance optimisation). ETEPAI's design stage requires that the clinical context determines the balance — high-stakes decisions require explainable models; lower-stakes tasks may tolerate black boxes. This is a clinical decision, not a technical one.
+        </div>
+        <div class="quiz-reset" onclick="resetQuiz('q2')" id="q2-reset">Try again</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION 3 -->
+<section id="session3">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--amber);">Session 3 · 75 min · Technical execution</p>
+    <h2 class="sess-title">Development stage —<br>building with rigour</h2>
+    <p class="sess-desc">The development stage emphasises transparent project execution. This is where technical decisions are made and data science happens — but clinicians have critical responsibilities in labelling, validation oversight, and bias detection.</p>
+    <div class="sess-meta">
+      <span class="tag" style="color:var(--amber-dark);border-color:var(--amber-light);">Stage 2: Develop</span>
+      <span class="tag" style="color:var(--amber-dark);border-color:var(--amber-light);">Ethics · Technical · Epi</span>
+    </div>
+    <div class="divider"></div>
+
+    <h3 class="blk">Ethics domain — development stage</h3>
+    <ul class="list-clean l-teal">
+      <li><strong>Bias detection protocols</strong> — actively test model performance across subgroups (age, sex, ethnicity, comorbidities) throughout training. Do not wait until validation to discover disparate performance.</li>
+      <li><strong>Audit trails</strong> — every decision made during development — data exclusions, label revisions, model iterations — must be documented. This is accountability in practice, not just principle.</li>
+      <li><strong>Transparency commitments</strong> — are model weights, training code, and data processing scripts being version-controlled and prepared for sharing upon publication?</li>
+      <li><strong>Intellectual property and data sharing</strong> — who owns the trained model? What obligations exist to share data or code? Are these agreed before the model is built, not after?</li>
+    </ul>
+
+    <h3 class="blk">Technical domain — development stage</h3>
+    <ul class="list-clean l-amber">
+      <li><strong>Data preprocessing standards</strong> — document every preprocessing decision: imputation strategy, normalisation method, outlier handling, class imbalance correction. These decisions significantly affect model performance and must be reproducible.</li>
+      <li><strong>Train/validation/test split</strong> — never allow data from the test set to influence preprocessing, feature selection, or hyperparameter tuning. Information leakage is the single most common source of inflated reported performance.</li>
+      <li><strong>Model selection rationale</strong> — document why the final model was chosen over alternatives. Include performance on the validation set, not just the training set.</li>
+      <li><strong>Internal validation</strong> — cross-validation on the training set. Necessary but not sufficient. Does not replace external validation on independent data.</li>
+      <li><strong>Code documentation and version control</strong> — use Git. Write readable code. Document dependencies. This is not optional — it is a scientific reproducibility requirement.</li>
+    </ul>
+
+    <h3 class="blk">Epidemiological domain — development stage</h3>
+    <ul class="list-clean l-purple">
+      <li><strong>Labelling strategy and inter-rater reliability</strong> — how were labels assigned? By one clinician or multiple? What is the kappa coefficient? Disagreements must be resolved by a defined protocol, not arbitrarily.</li>
+      <li><strong>Class imbalance</strong> — in most clinical datasets, the outcome of interest (disease, deterioration, admission) is rare. Naive models predict "no event" for everyone and achieve 95% accuracy. Use appropriate methods: SMOTE, class weighting, threshold adjustment, and AUC rather than accuracy.</li>
+      <li><strong>Confounding variable management</strong> — in clinical data, confounding is pervasive. A model that predicts mortality primarily because sick patients get more tests is learning proxy markers, not pathophysiology.</li>
+      <li><strong>Performance metric selection</strong> — choose metrics before seeing results. AUC for discrimination. Calibration plots for probability estimation. Sensitivity/specificity at the clinically relevant operating threshold. All three, not just AUC.</li>
+    </ul>
+
+    <!-- QUIZ 3 -->
+    <div class="quiz-block">
+      <div class="quiz-header"><span class="quiz-badge">Reflection</span><span class="quiz-title-text">Session 3 — Check your understanding</span></div>
+      <div class="quiz-body">
+        <div class="quiz-q">Your team builds a model to predict 30-day hospital readmission. Internal validation on the training set gives AUC 0.89. The team wants to publish. A colleague says: "This is ready." What is the most important missing step before publication?</div>
+        <div class="quiz-options" id="q3">
+          <div class="quiz-opt" onclick="answer(this,'q3','wrong')"><div class="opt-icon"></div>Increase the training dataset size to improve the AUC above 0.90.</div>
+          <div class="quiz-opt" onclick="answer(this,'q3','wrong')"><div class="opt-icon"></div>Add more variables to the model to improve performance.</div>
+          <div class="quiz-opt" onclick="answer(this,'q3','correct')"><div class="opt-icon"></div>External validation on an independent dataset — internal validation AUC alone is insufficient to claim generalisability or clinical readiness.</div>
+          <div class="quiz-opt" onclick="answer(this,'q3','wrong')"><div class="opt-icon"></div>Register the model as a medical device before publishing the results.</div>
+        </div>
+        <div class="quiz-feedback fb-correct" id="q3-fb-correct">
+          <div class="fb-label">Correct</div>
+          Internal validation (including cross-validation) only tells you how well the model performs on data from the same distribution it was trained on. External validation on a temporally or geographically distinct dataset is required to make any claim about generalisability. ETEPAI's development stage explicitly flags this — and the TRIPOD-AI reporting guideline requires external validation data to be reported separately. A paper reporting only internal AUC is a high-risk finding.
+        </div>
+        <div class="quiz-feedback fb-incorrect" id="q3-fb-incorrect">
+          <div class="fb-label">Look again</div>
+          The critical missing step is external validation. Internal validation AUC, no matter how high, only tells you the model performs well on data similar to its training data. Before any claim of generalisability or clinical utility, the model must be tested on an independent dataset — different institution, different time period, or both. This is a core ETEPAI development stage requirement.
+        </div>
+        <div class="quiz-reset" onclick="resetQuiz('q3')" id="q3-reset">Try again</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION 4 -->
+<section id="session4">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--coral);">Session 4 · 75 min · Real-world integration</p>
+    <h2 class="sess-title">Deploy &amp; post-deployment —<br>from model to clinical reality</h2>
+    <p class="sess-desc">Deployment and post-deployment stages focus on real-world implementation. A model that performs excellently in validation can still fail catastrophically in deployment. This is where governance and clinical ownership matter most.</p>
+    <div class="sess-meta">
+      <span class="tag" style="color:var(--coral-dark);border-color:var(--coral-light);">Stages 3 &amp; 4</span>
+      <span class="tag" style="color:var(--coral-dark);border-color:var(--coral-light);">Real-world integration</span>
+    </div>
+    <div class="divider"></div>
+
+    <h3 class="blk">Ethics domain — deployment</h3>
+    <ul class="list-clean l-teal">
+      <li><strong>Informed consent for AI-assisted decisions</strong> — do patients know an AI tool is being used in their care? Does your institution have a policy on disclosure? The MMC 2025 guideline requires clinicians to communicate AI benefits, risks, and limitations to facilitate informed consent.</li>
+      <li><strong>Equitable access</strong> — does the deployment design ensure the tool benefits all patient groups equally, or will it disproportionately serve patients who are already well-resourced?</li>
+      <li><strong>Clinician override mechanisms</strong> — a mandatory override mechanism is an ethical requirement, not a technical nicety. Clinicians must always be able to reject or modify AI recommendations without friction or documentation burden.</li>
+      <li><strong>Alert design ethics</strong> — alert fatigue causes harm. Designing an AI that fires excessively is an ethical failure, not just a usability problem.</li>
+    </ul>
+
+    <h3 class="blk">Technical domain — deployment</h3>
+    <ul class="list-clean l-amber">
+      <li><strong>Sandboxing first</strong> — run the model in shadow mode for a defined period before it influences clinical decisions. Monitor performance on real patients without acting on outputs.</li>
+      <li><strong>Integration architecture</strong> — how does the model receive input data, and how are outputs communicated to clinical staff? Who is responsible for the interface? What happens when the EMR system is updated?</li>
+      <li><strong>Rollback procedures</strong> — what is the plan if the model needs to be withdrawn urgently? Who makes that decision, and how quickly can it happen?</li>
+      <li><strong>Staff training</strong> — clinical staff must understand what the tool does, what it does not do, how to interpret its outputs, and how to report concerns. This is not optional.</li>
+    </ul>
+
+    <h3 class="blk">Epidemiological domain — deployment &amp; post-deployment</h3>
+    <ul class="list-clean l-purple">
+      <li><strong>External validation in deployment setting</strong> — validate the model prospectively on the actual patient population in the actual clinical environment before full deployment.</li>
+      <li><strong>Decision curve analysis</strong> — does acting on the model's recommendations actually improve clinical decisions across a range of threshold probabilities? Net benefit analysis quantifies clinical utility.</li>
+      <li><strong>Health technology assessment</strong> — does the benefit justify the cost? What is the incremental cost-effectiveness ratio? This is increasingly required for institutional adoption decisions.</li>
+      <li><strong>Prospective real-world evidence study</strong> — measuring model performance metrics is not the same as measuring clinical impact. A well-designed prospective study or RCT is the gold standard for demonstrating that the AI tool actually improves patient outcomes.</li>
+      <li><strong>Post-market surveillance (model drift)</strong> — patient populations change, clinical practices evolve, and data collection methods shift. A model that performs well at deployment may degrade silently. Continuous monitoring with pre-specified drift detection thresholds is essential.</li>
+    </ul>
+
+    <div class="callout callout-coral">
+      <div class="callout-title">The accountability question every clinician must be able to answer</div>
+      If this AI tool contributes to a patient harm — who is responsible? The clinician who acted on it? The hospital that deployed it without adequate governance? The vendor who built it without adequate validation? ETEPAI requires that accountability structures be defined before deployment — not assigned after harm.
+    </div>
+
+    <!-- QUIZ 4 -->
+    <div class="quiz-block">
+      <div class="quiz-header"><span class="quiz-badge">Reflection</span><span class="quiz-title-text">Session 4 — Check your understanding</span></div>
+      <div class="quiz-body">
+        <div class="quiz-q">Six months after deploying a model that predicts deterioration in ward patients, the clinical team reports the model seems to be performing worse than at launch — more false alarms, fewer true detections. No formal monitoring system is in place. According to ETEPAI post-deployment requirements, what is this an example of and what should have been in place?</div>
+        <div class="quiz-options" id="q4">
+          <div class="quiz-opt" onclick="answer(this,'q4','wrong')"><div class="opt-icon"></div>Hallucination — the model is generating incorrect outputs that were not present at training.</div>
+          <div class="quiz-opt" onclick="answer(this,'q4','correct')"><div class="opt-icon"></div>Model drift — gradual performance degradation as real-world conditions change — and the missing element is a continuous monitoring system with pre-specified drift detection thresholds.</div>
+          <div class="quiz-opt" onclick="answer(this,'q4','wrong')"><div class="opt-icon"></div>Overfitting — the model was too closely fitted to training data and was always going to perform poorly in deployment.</div>
+          <div class="quiz-opt" onclick="answer(this,'q4','wrong')"><div class="opt-icon"></div>Alert fatigue — clinical staff have stopped trusting the model because it fires too frequently.</div>
+        </div>
+        <div class="quiz-feedback fb-correct" id="q4-fb-correct">
+          <div class="fb-label">Correct</div>
+          Model drift occurs when the distribution of real-world data diverges from the training data — due to changes in patient population, clinical practices, data entry conventions, or seasonal disease patterns. ETEPAI's post-deployment requirements explicitly include: continuous performance monitoring, pre-specified drift detection thresholds, and a governance pathway for model review or withdrawal when thresholds are breached. The absence of this system is a governance failure, not a technical inevitability.
+        </div>
+        <div class="quiz-feedback fb-incorrect" id="q4-fb-incorrect">
+          <div class="fb-label">Look again</div>
+          The scenario describes model drift — a real-world performance degradation over time as conditions change. This is expected in any deployed AI system, which is why ETEPAI's post-deployment requirements include continuous monitoring and pre-specified drift thresholds. Overfitting would have been apparent at external validation; hallucination describes incorrect outputs at the individual level; alert fatigue describes workflow consequences of excessive alerts.
+        </div>
+        <div class="quiz-reset" onclick="resetQuiz('q4')" id="q4-reset">Try again</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION 5 -->
+<section id="session5">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--purple);">Session 5 · 90 min · Applied capstone</p>
+    <h2 class="sess-title">Pitfalls, team building<br>&amp; capstone project</h2>
+    <p class="sess-desc">The most common failure modes in AI tool development — and how to avoid them. Then build your own team, apply ETEPAI to a real clinical problem, and leave with a project outline you can actually use.</p>
+    <div class="sess-meta">
+      <span class="tag" style="color:var(--purple-dark);border-color:var(--purple-light);">Pitfalls &amp; best practices</span>
+      <span class="tag" style="color:var(--purple-dark);border-color:var(--purple-light);">Team builder</span>
+      <span class="tag" style="color:var(--purple-dark);border-color:var(--purple-light);">Capstone</span>
+    </div>
+    <div class="divider"></div>
+
+    <h3 class="blk">Common pitfalls — and how to prevent them</h3>
+
+    <div class="pitfall-row">
+      <div class="pitfall-head"><div class="pitfall-icon pi-coral">1</div><div><div class="pitfall-name">Solving the wrong problem</div><div class="pitfall-desc">AI solution looking for a problem. The tool is technically impressive but clinically irrelevant or already addressed by simpler means.</div><div class="pitfall-fix">Prevention: PICO framework at Design stage. Stakeholder consultation including frontline clinical staff and patients before any technical work begins.</div></div></div>
+    </div>
+    <div class="pitfall-row">
+      <div class="pitfall-head"><div class="pitfall-icon pi-coral">2</div><div><div class="pitfall-name">Information leakage</div><div class="pitfall-desc">Test set data contaminating training or preprocessing. Produces AUC values that are unrealistically high and cannot be reproduced in real-world use.</div><div class="pitfall-fix">Prevention: strict data partitioning before any preprocessing; temporal splitting for time-series data; independent test set held by a third party until model is finalised.</div></div></div>
+    </div>
+    <div class="pitfall-row">
+      <div class="pitfall-head"><div class="pitfall-icon pi-coral">3</div><div><div class="pitfall-name">Inadequate or biased training data</div><div class="pitfall-desc">Data that excludes certain patient groups, reflects historical clinical biases, or is collected from a different population than the intended deployment setting.</div><div class="pitfall-fix">Prevention: data audit for representativeness at Design stage; subgroup performance analysis during Development; external validation in the target population before Deployment.</div></div></div>
+    </div>
+    <div class="pitfall-row">
+      <div class="pitfall-head"><div class="pitfall-icon pi-coral">4</div><div><div class="pitfall-name">No human comparator</div><div class="pitfall-desc">Model performance reported without comparison to clinical decision-making. AUC of 0.85 vs what? An experienced clinician? Existing risk scores? Current standard of care?</div><div class="pitfall-fix">Prevention: define the comparator at Design stage and include it in the study design. TRIPOD-AI requires human comparator reporting.</div></div></div>
+    </div>
+    <div class="pitfall-row">
+      <div class="pitfall-head"><div class="pitfall-icon pi-coral">5</div><div><div class="pitfall-name">Internal validation only</div><div class="pitfall-desc">Publication of models validated only on the training institution's data. Cannot be generalised. Frequently cited as "ready for clinical use" prematurely.</div><div class="pitfall-fix">Prevention: plan external validation at Design stage as a mandatory step before any claim of generalisability or clinical utility.</div></div></div>
+    </div>
+    <div class="pitfall-row">
+      <div class="pitfall-head"><div class="pitfall-icon pi-coral">6</div><div><div class="pitfall-name">No real-world evidence of clinical impact</div><div class="pitfall-desc">Model accuracy does not equal patient benefit. A model that correctly predicts readmission risk does not improve outcomes unless clinical staff act on it effectively.</div><div class="pitfall-fix">Prevention: plan a prospective real-world evidence study or RCT at Design stage. ETEPAI post-deployment stage requires measuring actual clinical impact.</div></div></div>
+    </div>
+    <div class="pitfall-row">
+      <div class="pitfall-head"><div class="pitfall-icon pi-coral">7</div><div><div class="pitfall-name">Absent governance after deployment</div><div class="pitfall-desc">The AI tool is deployed and forgotten. No monitoring, no drift detection, no incident pathway, no accountability structure. The tool degrades silently and causes harm.</div><div class="pitfall-fix">Prevention: governance structure, monitoring plan, and accountability assignment are ETEPAI post-deployment requirements — agreed before deployment, not after.</div></div></div>
+    </div>
+
+    <h3 class="blk">Build your AI project team</h3>
+    <p style="font-size:0.83rem;color:var(--ink-3);margin-bottom:0.75rem;">Tap the roles you would include in your AI project team. Consider your project scope — a fine-tuned model needs fewer roles than a new model from scratch.</p>
+
+    <div class="team-grid" id="teamGrid">
+      <div class="team-card" onclick="toggleTeam(this,'Clinical Champion / Project Lead')"><div class="team-role">Clinical Champion / Project Lead</div><div class="team-desc">Owns the clinical problem definition and drives adoption. The bridge between clinical and technical teams.</div><span class="team-tag tt-essential">Essential — all projects</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'Data Scientist')"><div class="team-role">Data Scientist</div><div class="team-desc">Builds and evaluates the model. Manages preprocessing, feature engineering, and statistical analysis.</div><span class="team-tag tt-essential">Essential — all projects</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'Clinical Domain Expert / Annotator')"><div class="team-role">Clinical Domain Expert / Annotator</div><div class="team-desc">Labels training data, defines clinical outcomes, validates model outputs clinically. Critical for supervised learning.</div><span class="team-tag tt-essential">Essential — all projects</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'Data Governance Officer')"><div class="team-role">Data Governance Officer</div><div class="team-desc">Ensures PDPA compliance, manages data sharing agreements, oversees de-identification and consent.</div><span class="team-tag tt-essential">Essential — all projects</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'Ethicist / IRB Representative')"><div class="team-role">Ethicist / IRB Representative</div><div class="team-desc">Reviews ethical implications, supports ethics approval application, monitors for bias and equity issues.</div><span class="team-tag tt-essential">Essential — all projects</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'ML / AI Engineer')"><div class="team-role">ML / AI Engineer</div><div class="team-desc">Implements the technical pipeline, manages model training infrastructure, handles deployment architecture.</div><span class="team-tag tt-required">Required — fine-tuned or new model</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'Software / Systems Architect')"><div class="team-role">Software / Systems Architect</div><div class="team-desc">Designs the integration with EMR systems, APIs, and clinical workflows. Ensures technical sustainability.</div><span class="team-tag tt-required">Required — deployment projects</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'Biostatistician / Epidemiologist')"><div class="team-role">Biostatistician / Epidemiologist</div><div class="team-desc">Ensures study design rigour, sample size adequacy, confounding control, and appropriate statistical analysis.</div><span class="team-tag tt-required">Required — validation studies</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'Patient Representative')"><div class="team-role">Patient Representative</div><div class="team-desc">Ensures the tool is designed for patients, not just clinicians. Provides feedback on acceptability and communication of outputs.</div><span class="team-tag tt-required">Required — patient-facing tools</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'Health Administrator')"><div class="team-role">Health Administrator</div><div class="team-desc">Represents institutional interests, governance, budget, and workflow integration. Essential for deployment planning.</div><span class="team-tag tt-required">Required — institutional deployment</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'Regulatory Affairs Specialist')"><div class="team-role">Regulatory Affairs Specialist</div><div class="team-desc">Navigates medical device registration requirements (MDA Malaysia, FDA, CE mark) if the tool qualifies as a medical device.</div><span class="team-tag tt-optional">Optional — if regulatory approval needed</span></div>
+      <div class="team-card" onclick="toggleTeam(this,'MLOps / DevOps Engineer')"><div class="team-role">MLOps / DevOps Engineer</div><div class="team-desc">Manages the production pipeline, monitoring, drift detection, model updates, and incident response in the deployed environment.</div><span class="team-tag tt-optional">Optional — for sustained deployment</span></div>
+    </div>
+    <div class="team-summary" id="teamSummary">Tap roles above to build your team. Your selection will appear here.</div>
+
+    <!-- QUIZ 5 — CAPSTONE -->
+    <div class="quiz-block" style="margin-top:1.75rem;">
+      <div class="quiz-header"><span class="quiz-badge">Capstone</span><span class="quiz-title-text">Session 5 — Full programme capstone</span></div>
+      <div class="quiz-body">
+        <div class="quiz-q">You are the clinical champion for a new AI project to detect early chronic kidney disease progression from primary care EMR data in Malaysia. You have institutional support and a data scientist partner. Using ETEPAI, which of the following correctly describes what you should complete at the Design stage before any data work begins?</div>
+        <div class="quiz-options" id="q5">
+          <div class="quiz-opt" onclick="answer(this,'q5','wrong')"><div class="opt-icon"></div>Obtain a large dataset, split it into train and test, and run a baseline logistic regression model to see if the problem is feasible.</div>
+          <div class="quiz-opt" onclick="answer(this,'q5','wrong')"><div class="opt-icon"></div>Apply for ethics approval, then begin model development while waiting for the approval to come through.</div>
+          <div class="quiz-opt" onclick="answer(this,'q5','correct')"><div class="opt-icon"></div>Define the clinical outcome (PICO), assemble the full team including ethicist, data governance officer, biostatistician, and patient representative, obtain ethics approval and data governance agreement, audit data quality and representativeness, and pre-specify the study design and reporting framework — before any data extraction.</div>
+          <div class="quiz-opt" onclick="answer(this,'q5','wrong')"><div class="opt-icon"></div>Register the AI tool with MDA Malaysia before beginning development, since it will eventually be used clinically.</div>
+        </div>
+        <div class="quiz-feedback fb-correct" id="q5-fb-correct">
+          <div class="fb-label">Outstanding — you are AI-Savvy</div>
+          This is the complete ETEPAI Design stage checklist applied correctly. Every element — PICO outcome definition, full team assembly (including roles clinicians often overlook: ethicist, data governance, biostatistician, patient representative), ethics and governance approval, data quality audit, and pre-specified study design with the relevant reporting framework (TRIPOD-AI for a prediction model) — must be completed before data extraction begins. You are now equipped to design or co-design an AI project from a position of genuine competence. That is what AI-Savvy means.
+        </div>
+        <div class="quiz-feedback fb-incorrect" id="q5-fb-incorrect">
+          <div class="fb-label">Review the Design stage probes</div>
+          The complete Design stage requires: (1) PICO outcome definition, (2) full team assembly including roles beyond just clinician and data scientist, (3) ethics approval and data governance agreement obtained before any data work, (4) data quality and representativeness audit, (5) pre-specified study design and reporting framework. ETEPAI's probing questions for the Design stage are a checklist for exactly this — revisit them before your capstone exercise.
+        </div>
+        <div class="quiz-reset" onclick="resetQuiz('q5')" id="q5-reset">Try again</div>
+      </div>
+    </div>
+
+    <h3 class="blk">Programme closing takeaways</h3>
+    <ul class="list-clean l-teal">
+      <li>ETEPAI integrates 30 frameworks into 4 stages × 3 domains — use it as your project compass from idea to sustained deployment.</li>
+      <li>The design stage is the most important and most neglected. Problems not caught at design are exponentially more expensive to fix later.</li>
+      <li>Clinicians are uniquely irreplaceable in the epidemiological domain — outcome definition, labelling, bias identification, and real-world impact measurement are clinical skills, not data science skills.</li>
+      <li>Pitfalls are not random. They follow predictable patterns. Knowing them in advance is the difference between a wasted project and an impactful one.</li>
+      <li>AI-Savvy does not mean knowing how to code. It means knowing how to lead, co-design, evaluate, and govern AI tool development with enough competence to hold your team accountable to the right standards.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROPOSAL TEMPLATE -->
+<section id="proposal">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--ink-4);">Practical tool</p>
+    <h2 class="sess-title">AI Research Proposal Template</h2>
+    <p style="font-size:0.85rem;color:var(--ink-3);margin-bottom:1.25rem;">Based on the AI Research Proposal Outline (Multimedia Appendix 3, ETEPAI paper — Chew &amp; Ngiam, JMIR AI 2026). Sections A–O follow the standard research proposal structure; the two final sections cover AI-specific disclosure and best practices. Tap each section to expand the guidance.</p>
+
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">A.</span><span class="proposal-title">Topic and Abstract</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">A concise, informative title that captures the AI tool, the clinical problem, and the study design. The abstract should follow structured format: Background (why this matters), Objective (what the AI tool will do), Methods (study design and data approach), Expected Results (outcomes to be measured), and Conclusions (anticipated contribution). Keep to 250–300 words. Use AI tools to refine language but ensure clinical accuracy is your own.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">B.</span><span class="proposal-title">Literature Review / Introduction</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">Summarise the current state of evidence on the clinical problem and existing AI solutions. Identify the gap your project fills. What has been tried? What has failed and why? What is missing from current tools — local population data, external validation, real-world impact evidence? Use tools such as Elicit, SciSpace, or Perplexity to assist literature searches, but critically appraise every source. End with a clear statement of the rationale for this specific AI project.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">C.</span><span class="proposal-title">Theoretical / Conceptual Framework</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">Identify the theoretical underpinnings that inform the tool's purpose. Which clinical or behavioural theory explains the problem being addressed? What assumptions are you making about how clinicians, patients, or systems will interact with the AI output? For example: if predicting medication non-adherence, what adherence framework (COM-B, Health Belief Model) informs your outcome definition and feature selection? A clear conceptual framework prevents building a technically sound tool that misses the clinical reality.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">D.</span><span class="proposal-title">Problem Statement</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">A precise, measurable statement of the clinical problem. Include: the population affected, the burden of the problem (epidemiological data), why current solutions are inadequate, and the specific gap this AI tool addresses. Avoid vague framing ("AI could improve care") in favour of specific claims ("current risk stratification tools for CKD progression in Malaysian primary care have AUC ≤0.72 and were not validated in Asian populations"). The more precisely defined the problem, the more evaluable the solution.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">E.</span><span class="proposal-title">Objectives / Research Questions</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">State primary and secondary objectives using the PICO framework. <strong>Primary objective</strong>: what is the main thing the AI tool must achieve? <strong>Secondary objectives</strong>: subgroup analyses, fairness evaluations, usability assessments, health economic analysis. Frame as SMART objectives (Specific, Measurable, Achievable, Relevant, Time-bound). Each objective should have a corresponding outcome measure and statistical analysis plan. Reviewers should be able to assess whether the objectives were met from the results alone.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">F.</span><span class="proposal-title">Methods</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">
+        <strong>F1 — Study Design:</strong> Specify the design (prediction model development and validation, diagnostic accuracy study, clinical trial, real-world evidence study) and the corresponding reporting framework (TRIPOD+AI, CONSORT-AI, SPIRIT-AI, DECIDE-AI). Justify the design choice.<br><br>
+        <strong>F2 — Population:</strong> Inclusion and exclusion criteria. Target population demographics. How the population was or will be identified. Expected sample characteristics relevant to model generalisability.<br><br>
+        <strong>F3 — Inclusion and Exclusion Criteria:</strong> State explicitly. For AI studies this must include: data completeness thresholds, time windows for data extraction, handling of duplicate records, and criteria for excluding clinically atypical cases that might distort training.<br><br>
+        <strong>F4 — Setting:</strong> Institution(s), care level (primary, secondary, tertiary), country and healthcare system context. For Malaysian studies: specify MOH vs university vs private setting. State any plans for multi-site validation.<br><br>
+        <strong>F5 — Instruments and Tools:</strong> Data sources (EMR system, registry, wearable, imaging). AI platform or framework (TensorFlow, PyTorch, scikit-learn, cloud ML services). Explainability tools (SHAP, LIME, Grad-CAM). Evaluation instruments (clinical decision curve analysis tools, calibration plots). Version numbers matter for reproducibility.<br><br>
+        <strong>F6 — Ethical Considerations:</strong> Ethics board name and approval reference number (or application status). PDPA compliance approach. Patient consent plan. Data de-identification method. Conflict of interest declaration. Data sharing and open science commitments. Regulatory classification (medical device or not) and registration plan if applicable. Bias monitoring protocol with subgroup performance analysis plan.
+      </div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">G.</span><span class="proposal-title">Sampling and Sample Size</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">For prediction model studies: justify sample size using the EPV (events per variable) rule — minimum 10 events per predictor variable for development, with a separate external validation cohort. For diagnostic accuracy studies: use published methods for sensitivity/specificity-based sample size (e.g. Obuchowski). For clinical trials: standard power calculations apply with AI as the intervention. State: total N needed, expected event rate, train/validation/test split rationale, and how class imbalance will be handled. Do not conflate model development sample size with clinical trial sample size — these serve different purposes.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">H.</span><span class="proposal-title">Data Analysis Plan</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">Pre-specify all analyses before data extraction. Include: preprocessing pipeline (imputation strategy, normalisation, outlier handling, class imbalance correction). Feature selection approach and rationale. Algorithm(s) to be trained and compared. Internal validation approach (k-fold cross-validation). External validation approach. Primary performance metrics and their clinical justification (AUC, sensitivity/specificity at pre-specified threshold, calibration, net benefit). Subgroup performance analyses (sex, age group, ethnicity, comorbidity burden). Fairness metrics. Software and version numbers. Pre-registration of the analysis plan (e.g. OSF, ClinicalTrials.gov) is strongly recommended.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">I.</span><span class="proposal-title">Discussion</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">In the proposal, the Discussion section is written prospectively: what do you anticipate finding, and why does it matter? Address: expected clinical significance of the results, how findings will be compared to existing tools and literature, anticipated limitations (data quality, population representativeness, generalisability beyond your setting), and how limitations will be mitigated. Also address implementation feasibility: if the tool performs as hoped, what would be required to deploy it? This demonstrates to reviewers that you have thought beyond model performance to real-world impact.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">J.</span><span class="proposal-title">Conclusion</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">A concise statement (2–3 sentences) of what the project will achieve, why it matters, and what it will contribute to the field and to patient care. Avoid overpromising. A well-scoped conclusion that matches the study design is more credible than an ambitious conclusion that exceeds the study's capacity to deliver. Explicitly connect back to the problem statement: if successful, this project will address the gap identified in section D by achieving the outcomes defined in section E.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">K.</span><span class="proposal-title">Acknowledgements</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">Acknowledge funding sources (grant name, number, funding body), institutional support, data custodians who facilitated access, patient and public involvement contributors, and any AI tools used in preparing the proposal. For AI tool acknowledgement, state the tool name and version, what it was used for (language editing, literature search assistance, draft structuring), and confirm that all content was critically reviewed and verified by the authors. Follow the journal's or funder's AI disclosure policy.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">L.</span><span class="proposal-title">References</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">Use a consistent reference manager (Zotero, Mendeley, EndNote). For AI tool development proposals, prioritise: the relevant reporting guideline (TRIPOD+AI, CONSORT-AI etc.), seminal papers on the clinical problem, existing AI tools in the same domain (to contextualise your contribution), and methodological references for your statistical approach. Avoid over-reliance on grey literature or preprints for clinical claims. Verify all AI-generated citations — hallucinated references are common and a serious scientific integrity issue.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">M.</span><span class="proposal-title">Budget</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">Itemise costs across all four ETEPAI stages. Typical line items: personnel (data scientist, research assistant, clinical annotators — include FTE and duration), data infrastructure (cloud compute, storage, EMR access fees), software licences, model development compute costs, external validation (if multi-site: travel, coordination), clinical trial costs if applicable, regulatory fees (ethics board, medical device registration), dissemination (publication, conference), and post-deployment monitoring. Budget justification must link each cost directly to a specific study activity. AI-assisted budget tools can generate initial estimates — always have these reviewed by an experienced researcher and your institution's grants office.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">N.</span><span class="proposal-title">Gantt Chart</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">Map activities across all four ETEPAI stages with realistic timelines. Critical milestones to include: ethics approval obtained (before data extraction), data governance agreement signed, training dataset assembled and labelled, model development complete, internal validation complete, external validation complete (before deployment), sandboxing period complete, full deployment, first performance review, and prospective impact study launch. Build in buffer for ethics review (typically 2–4 months in Malaysia), data access negotiations, and unexpected model iterations. A Gantt chart that shows every activity completing on time with no dependencies is not credible — show the real constraints.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">O.</span><span class="proposal-title">Supplementary Materials</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">Include as appendices: the completed ETEPAI checklist for your project (self-assessment across all 4 stages × 3 domains), the relevant reporting guideline checklist (TRIPOD+AI, CONSORT-AI, etc.) with your planned responses, letters of support from data custodians and collaborating institutions, CVs of key team members, preliminary data or pilot results if available, and the data dictionary for your primary dataset. For clinical trial protocols: include the full statistical analysis plan. Supplementary materials demonstrate to reviewers that the project has been rigorously planned and that the team has the capacity to execute it.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">+</span><span class="proposal-title">Ethical Use of AI &amp; Acknowledgement Statements</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">A dedicated section — increasingly required by funders and journals — disclosing exactly how AI tools were used in preparing this proposal. State: which AI tools (name, version, provider), what they were used for (e.g. "ChatGPT-4o was used for initial literature search assistance and language editing of sections B and I"), what verification was performed ("all AI-generated content was independently checked against primary sources by BHC"), and confirmation of sole author responsibility for accuracy and integrity. Do not use AI to generate fabricated citations, invent data, or produce content you cannot verify. The MMC 2025 guideline and most international research ethics frameworks require transparent AI disclosure.</div>
+    </div>
+    <div class="proposal-section" onclick="toggleProposal(this)">
+      <div class="proposal-head"><span><span class="proposal-num">+</span><span class="proposal-title">Do's and Don'ts of AI-Assisted Proposal Writing</span></span><span style="font-size:0.72rem;color:var(--ink-4);">▼</span></div>
+      <div class="proposal-body">
+        <strong>Do:</strong> Use AI to structure your thinking, generate first drafts for language-heavy sections, assist literature search, check grammar, and format references. Use AI to generate initial budget estimates and Gantt drafts. Use AI to summarise long guidelines into key points. Always critically review and verify every output.<br><br>
+        <strong>Don't:</strong> Use AI to generate citations without verifying they exist. Let AI define your clinical problem or research question — these require your clinical expertise. Use AI to produce your statistical analysis plan without a biostatistician's review. Submit AI-generated content without disclosing it. Use AI to claim that your methodology is sound when it hasn't been reviewed by a qualified methodologist. Mistake fluent writing for accurate content.
+      </div>
+    </div>
+
+    <div class="callout callout-teal" style="margin-top:1rem;">
+      <div class="callout-title">Full template — Multimedia Appendix 3</div>
+      The complete AI Research Proposal outline is available as Multimedia Appendix 3 of the published ETEPAI paper (Chew &amp; Ngiam, JMIR AI 2026). <a href="https://jmir.org/api/download?alt_name=ai_v5i1e80340_app3.pdf&filename=35cf7dc1-18d4-11f1-991a-adda7feb21e7.pdf&_gl=1*lwsxwe*_gcl_au*MTg3ODkyNjMyMC4xNzcwMzc1NTA5*_ga*MTMwNDQ0NzQ4MC4xNzcwMzc1NDky*_ga_YP0XNYBWWC*czE3NzM1NjYxNDQkbzEyJGcwJHQxNzczNTY2MTUxJGo1MyRsMCRoMA.." target="_blank" rel="noopener" style="color:var(--teal-dark);">Download Appendix 3 PDF ↗</a> &nbsp;·&nbsp; <a href="https://ai.jmir.org/2026/1/e80340" target="_blank" rel="noopener" style="color:var(--teal-dark);">Published paper ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--ink-4);">Further reading</p>
+    <h2 class="sess-title">Resources</h2>
+
+    <h3 class="blk">Primary source</h3>
+    <div class="reading-card"><div class="ricon ri-teal">JMIR</div><div class="rbody"><div class="rjournal">JMIR AI · 2026</div><div class="rtitle">Important Ethical, Technical, and Epidemiological Considerations in an AI Tool Production (ETEPAI): Scoping Review</div><div class="rnote">The foundation of this programme. Synthesises 30 frameworks into 4 stages × 3 domains. Includes probing questions, critical pointers, common pitfalls, and an AI research proposal template (Multimedia Appendix 3).</div><a class="rlink" href="https://ai.jmir.org/2026/1/e80340" target="_blank" rel="noopener">ai.jmir.org/2026/1/e80340 ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-teal">BMC</div><div class="rbody"><div class="rjournal">BMC Medicine · 2025</div><div class="rtitle">Artificial intelligence tool development: what clinicians need to know (AI-Steady Clinician source paper)</div><div class="rnote">The foundation of AI-Steady Clinician — the 9-step development cycle that ETEPAI's four stages map onto.</div><a class="rlink" href="https://doi.org/10.1186/s12916-025-04076-0" target="_blank" rel="noopener">doi.org/10.1186/s12916-025-04076-0 ↗</a></div></div>
+
+    <h3 class="blk">Reporting frameworks referenced in ETEPAI</h3>
+    <div class="reading-card"><div class="ricon ri-purple">BMJ</div><div class="rbody"><div class="rjournal">BMJ · 2024</div><div class="rtitle">TRIPOD+AI — reporting guideline for prediction model development and validation</div><div class="rnote">27-item checklist. Required for prediction model studies. Mandates separate reporting of internal and external validation performance.</div><a class="rlink" href="https://doi.org/10.1136/bmj-2023-078378" target="_blank" rel="noopener">doi.org/10.1136/bmj-2023-078378 ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-amber">Nat</div><div class="rbody"><div class="rjournal">Nature Medicine · 2020</div><div class="rtitle">CONSORT-AI — reporting guideline for clinical trials with AI components</div><div class="rnote">14 new items added to CONSORT 2010. Includes requirements for AI intervention description, human-AI interaction, and error case analysis.</div><a class="rlink" href="https://doi.org/10.1038/s41591-020-1034-x" target="_blank" rel="noopener">doi.org/10.1038/s41591-020-1034-x ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-amber">Nat</div><div class="rbody"><div class="rjournal">Nature Medicine · 2020</div><div class="rtitle">SPIRIT-AI — reporting guideline for clinical trial protocols with AI</div><div class="rnote">15 new items added to SPIRIT 2013. Required for clinical trial protocols that include an AI intervention component.</div><a class="rlink" href="https://doi.org/10.1038/s41591-020-1037-7" target="_blank" rel="noopener">doi.org/10.1038/s41591-020-1037-7 ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-teal">Nat</div><div class="rbody"><div class="rjournal">Nature Medicine · 2022</div><div class="rtitle">DECIDE-AI — reporting guideline for early-stage clinical AI decision support studies</div><div class="rnote">17 AI-specific reporting items for early clinical studies of AI decision support systems. Facilitates appraisal and replicability.</div><a class="rlink" href="https://doi.org/10.1038/s41591-022-01772-9" target="_blank" rel="noopener">doi.org/10.1038/s41591-022-01772-9 ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-purple">Nat</div><div class="rbody"><div class="rjournal">Nature Medicine · 2020</div><div class="rtitle">MI-CLAIM — minimum information for clinical AI modelling</div><div class="rnote">Enables direct assessment of clinical impact including fairness and bias, and rapid replication of the technical design process.</div><a class="rlink" href="https://doi.org/10.1038/s41591-020-1041-y" target="_blank" rel="noopener">doi.org/10.1038/s41591-020-1041-y ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-amber">JAMA</div><div class="rbody"><div class="rjournal">JAMA Network Open · 2023</div><div class="rtitle">APPRAISE-AI — quality assessment of AI studies in model development</div><div class="rnote">6 domains, 24 items, maximum 100 points. Evaluates clinical relevance, data quality, methodological conduct, robustness, reporting quality, and reproducibility.</div><a class="rlink" href="https://doi.org/10.1001/jamanetworkopen.2023.35377" target="_blank" rel="noopener">doi.org/10.1001/jamanetworkopen.2023.35377 ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-blue">NEJM</div><div class="rbody"><div class="rjournal">NEJM AI · 2024</div><div class="rtitle">OPTICA — Organisational PerspecTIve Checklist for AI solutions adoption</div><div class="rnote">13-chapter, end-to-end organisational checklist for evaluating AI solutions in new clinical settings. Five defined stakeholder roles.</div><a class="rlink" href="https://doi.org/10.1056/AIcs2300269" target="_blank" rel="noopener">doi.org/10.1056/AIcs2300269 ↗</a></div></div>
+
+    <h3 class="blk">Regulatory and governance — Malaysia</h3>
+    <div class="reading-card"><div class="ricon ri-coral">MMC</div><div class="rbody"><div class="rjournal">Malaysian Medical Council · 2025</div><div class="rtitle">Guideline on the Ethical Use of Artificial Intelligence in Medical Practice (Version 1/2025)</div><div class="rnote">Primary regulatory and professional guidance for Malaysian registered medical practitioners. Clinicians continue to be bound by the Code of Professional Conduct and must communicate AI benefits, risks, and limitations to facilitate informed consent.</div><a class="rlink" href="https://mmc.gov.my/wp-content/uploads/2025/09/MMC-Guideline-on-The-Ethical-Use-of-Artificial-Intelligence-AI-.pdf" target="_blank" rel="noopener">MMC guideline PDF ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-teal">NAIO</div><div class="rbody"><div class="rjournal">National AI Office (NAIO) · Malaysia</div><div class="rtitle">Malaysia AI Governance — National AI Office</div><div class="rnote">Malaysia's NAIO governance page covering the National Guidelines on AI Governance and Ethics, ASEAN AI governance frameworks, and the country's AI policy ecosystem. Includes the voluntary 7 Key Principles for responsible AI adoption.</div><a class="rlink" href="https://ai.gov.my/governance" target="_blank" rel="noopener">ai.gov.my/governance ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-teal">KD</div><div class="rbody"><div class="rjournal">Kementerian Digital (Ministry of Digital) · December 2025</div><div class="rtitle">Two Years of the Ministry of Digital: Driving the National Digitalisation Agenda, Towards an AI Nation 2030</div><div class="rnote">Official statement on Malaysia's AI Nation 2030 aspiration. Outlines the National AI Action Plan 2026–2030, the Malaysia Digital Action Plan, governance priorities, and the RM16.36 billion budget allocation for digital initiatives.</div><a class="rlink" href="https://www.digital.gov.my/en-GB/siaran/Dua-Tahun-Kementerian-Digital:Memacu-Agenda-Pendigitalan-Negara,-Ke-Arah-Negara-AI-2030" target="_blank" rel="noopener">digital.gov.my ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-teal">KAIN</div><div class="rbody"><div class="rjournal">Konsortium AI Negara (KAIN)</div><div class="rtitle">KAIN — Driving Malaysia's AI Future</div><div class="rnote">National consortium uniting industry leaders, startups, and enablers to build Malaysia's AI ecosystem. Publishes the Malaysia AI Ecosystem Map and the KAIN Malaysia AI Report 2025. The national coordinating body for AI sector development.</div><a class="rlink" href="https://konsortiumainegara.org" target="_blank" rel="noopener">konsortiumainegara.org ↗</a></div></div>
+
+    <h3 class="blk">Regulatory and governance — Regional (ASEAN)</h3>
+    <div class="reading-card"><div class="ricon ri-amber">SGP</div><div class="rbody"><div class="rjournal">IMDA Singapore · 2020 / 2026</div><div class="rtitle">Singapore Model AI Governance Framework 2.0 — including Agentic AI (2026)</div><div class="rnote">First-of-its-kind framework in Asia for practical AI governance. The 2026 edition extends to agentic AI, providing guidance across four dimensions: bounding risks, meaningful human accountability, technical controls, and user transparency. Directly relevant to clinical AI deployment governance.</div><a class="rlink" href="https://isomer-user-content.by.gov.sg/3/7c8046e3-0bbf-4f68-bd94-d9e0b67e1efa/AIHGle%202.0.pdf" target="_blank" rel="noopener">Download Framework PDF ↗</a></div></div>
+
+    <h3 class="blk">Regulatory and governance — Global</h3>
+    <div class="reading-card"><div class="ricon ri-coral">FDA</div><div class="rbody"><div class="rjournal">US FDA</div><div class="rtitle">List of AI/ML-enabled medical devices</div><div class="rnote">Over 1,000 cleared devices — predominantly radiological. Essential reference for understanding what has been approved and what the regulatory bar looks like in the world's most active medical AI market.</div><a class="rlink" href="https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-and-machine-learning-aiml-enabled-medical-devices" target="_blank" rel="noopener">fda.gov ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-amber">NAM</div><div class="rbody"><div class="rjournal">National Academies of Sciences, Engineering, and Medicine · 2025</div><div class="rtitle">An Artificial Intelligence Code of Conduct for Health and Medicine: Essential Guidance for Aligned Action</div><div class="rnote">Foundational governance document from the US National Academies. Outlines a code of conduct covering AI applications in medical research, diagnostics, treatment planning, patient communication, and claims — across a myriad of possibilities.</div><a class="rlink" href="https://doi.org/10.17226/29087" target="_blank" rel="noopener">doi.org/10.17226/29087 ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-purple">ISC</div><div class="rbody"><div class="rjournal">International Science Council</div><div class="rtitle">AI Disclosure in Research: Towards a Global Reporting Standard</div><div class="rnote">Addresses the growing need for transparent AI disclosure in scientific publications. Directly relevant to the Ethical Use of AI section of your research proposal and to the MMC's disclosure requirements in clinical practice.</div><a class="rlink" href="https://council.science/our-work/ai-disclosure-in-research/" target="_blank" rel="noopener">council.science ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-blue">UN</div><div class="rbody"><div class="rjournal">UN AI for Good / ITU</div><div class="rtitle">UN AI Resource Hub — One Platform, All UN AI Activities</div><div class="rnote">Central repository for AI-related activities across all 55 UN entities in 165+ countries. Useful for understanding international governance landscape, multilateral AI initiatives, and global capacity-building resources relevant to healthcare.</div><a class="rlink" href="https://unaihub.aiforgood.itu.int" target="_blank" rel="noopener">unaihub.aiforgood.itu.int ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-blue">Reg</div><div class="rbody"><div class="rjournal">Regulations.AI</div><div class="rtitle">The Site on AI Laws and Regulations — Global Database</div><div class="rnote">Comprehensive database of AI laws and regulations by country, including Malaysia's MyDIGITAL blueprint and national AI strategies. Useful for understanding the regulatory environment before proposing deployment in any specific jurisdiction.</div><a class="rlink" href="https://regulations.ai" target="_blank" rel="noopener">regulations.ai ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-purple">ARS</div><div class="rbody"><div class="rjournal">ARISE Network — Stanford &amp; Harvard · 2026</div><div class="rtitle">State of Clinical AI Report 2026</div><div class="rnote">Annual synthesis of the most significant developments, evidence, and challenges in clinical AI. Produced by ARISE (AI Research and Science Evaluation), a Stanford-Harvard research network. Spans model performance, evaluation, workflows, and patient-facing tools.</div><a class="rlink" href="https://www.arise-ai.org/report" target="_blank" rel="noopener">arise-ai.org/report ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-coral">Pro</div><div class="rbody"><div class="rjournal">Pro-Human AI Declaration · March 2026</div><div class="rtitle">The Pro-Human AI Declaration — humanstatement.org</div><div class="rnote">Multi-stakeholder declaration affirming that AI should remain human-centred, accountable, and subject to meaningful human oversight. Signed by unions, civil society organisations, and academic bodies. Relevant to the ethics domain discussions in Sessions 1–4.</div><a class="rlink" href="https://humanstatement.org/" target="_blank" rel="noopener">humanstatement.org ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-amber">arX</div><div class="rbody"><div class="rjournal">arXiv · January 2026</div><div class="rtitle">The Power of 10: New Rules for the Digital World</div><div class="rnote">A European interdisciplinary proposal of ten ethical rules for the digital age, inspired by enduring moral frameworks. Addresses human dignity, accountability, transparency, sustainability, and the governance of advanced AI in society — a useful reference for the ethics domain across all ETEPAI stages.</div><a class="rlink" href="https://arxiv.org/pdf/2601.03709" target="_blank" rel="noopener">arxiv.org/pdf/2601.03709 ↗</a></div></div>
+
+    <h3 class="blk">Prof Chew's resources for AI in research</h3>
+    <div class="reading-card"><div class="ricon ri-teal">Zen</div><div class="rbody"><div class="rjournal">Zenodo · 2025</div><div class="rtitle">Enhancing Research Proposal Preparation with AI: An Emerging Guide for Novel Researchers in Clinical and Health Sciences</div><div class="rnote">Prof Chew's open-access manual on using AI tools for clinical research proposals. Directly complements the AI Research Proposal Template in this programme.</div><a class="rlink" href="https://zenodo.org/records/15074780" target="_blank" rel="noopener">zenodo.org/records/15074780 ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-amber">Com</div><div class="rbody"><div class="rjournal">Digital Health Avantgarde</div><div class="rtitle">WhatsApp community — AI projects, digital health, and peer learning</div><div class="rnote">Connect with other clinicians working on AI projects. Feel free to reach out about your project — collaboration is how the ecosystem improves.</div><a class="rlink" href="https://chat.whatsapp.com/KFO0Mk1jVvcCKqzWiCania" target="_blank" rel="noopener">Join the group ↗</a></div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="mystory">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--ink-4);">The facilitator</p>
+    <h2 class="sess-title">About Prof. Dr. Boon-How Chew</h2>
+    <div class="divider"></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem 1.75rem;margin-bottom:1.5rem;border-left:4px solid var(--teal);">
+      <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.8;">ETEPAI was built from the same journey that produced this three-part programme — the recognition that there is a gap between understanding AI and being able to do something useful with it as a clinician. AI-Ready gave you confidence. AI-Steady gave you knowledge. AI-Savvy gives you a framework that is comprehensive enough to be rigorous, and compact enough to actually use.</p>
+      <p style="font-size:0.875rem;font-style:italic;color:var(--teal-dark);margin-top:0.875rem;line-height:1.7;">"Applying ETEPAI ensures comprehensive, complete, compact, and crisp consideration from conception to execution — promoting high-quality, ethically sound, and clinically relevant AI tools."</p>
+    </div>
+    <div style="background:var(--surface-2);border-radius:var(--r-lg);padding:1.25rem 1.5rem;display:flex;gap:1.2rem;align-items:flex-start;">
+      <div style="width:50px;height:50px;border-radius:50%;background:var(--teal-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.15rem;flex-shrink:0;">BC</div>
+      <div>
+        <div style="font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">Prof. Dr. Boon-How Chew</div>
+        <div style="font-size:0.78rem;color:var(--ink-3);line-height:1.7;margin-bottom:0.6rem;">MD (USM) &nbsp;·&nbsp; MMed Fam. Med. (UM) &nbsp;·&nbsp; PhD (Utrecht)<br>MMC No. 36222 &nbsp;·&nbsp; NSR No. 125625<br>Professor &amp; Consultant Family Medicine Specialist<br>Family Medicine Specialist Clinic, HSAAS Teaching Hospital<br>Department of Family Medicine, Universiti Putra Malaysia (UPM)</div>
+        <div style="font-size:0.76rem;color:var(--teal-dark);font-weight:500;line-height:1.9;">
+          <a href="https://www.credential.net/c06596aa-f0d8-4bf8-b449-f13d1b1e5fa4#gs.afs3o4" target="_blank" rel="noopener" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-light);">Credentialed in No Code AI and Machine Learning: Building Data Science Solutions &nbsp;·&nbsp; MIT ↗</a><br>
+          <a href="https://certificates.emeritus.org/c5c4fd55-198b-4fc8-8513-81d699b9e47c#gs.71pxz4" target="_blank" rel="noopener" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-light);">Credentialed in AI For Healthcare Programme &nbsp;·&nbsp; NUS ↗</a>
+        </div>
+        <div style="margin-top:0.75rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <a href="mailto:chewboonhow@upm.edu.my" style="font-size:0.72rem;font-weight:500;color:var(--teal-dark);text-decoration:none;background:var(--teal-light);padding:0.25rem 0.75rem;border-radius:20px;">chewboonhow@upm.edu.my</a>
+          <a href="https://www.linkedin.com/in/boon-how-chew-80151b6/" target="_blank" rel="noopener" style="font-size:0.72rem;font-weight:500;color:var(--ink-3);text-decoration:none;background:#fff;border:1px solid var(--border);padding:0.25rem 0.75rem;border-radius:20px;">LinkedIn ↗</a>
+          <a href="http://orcid.org/0000-0002-8627-6248" target="_blank" rel="noopener" style="font-size:0.72rem;font-weight:500;color:var(--ink-3);text-decoration:none;background:#fff;border:1px solid var(--border);padding:0.25rem 0.75rem;border-radius:20px;">ORCID ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <strong>AI-Savvy Clinician</strong> · third in a three-part series<br>
+  Designed and facilitated by <strong>Prof. Dr. Boon-How Chew</strong><br>
+  Professor of Family Medicine, Universiti Putra Malaysia (UPM)<br>
+  Senior Consultant Family Medicine Specialist, HSAAS<br><br>
+  <a href="mailto:chewboonhow@upm.edu.my">chewboonhow@upm.edu.my</a><br><br>
+  Based on: Chew &amp; Ngiam, JMIR AI 2026;5:e80340. <a href="https://ai.jmir.org/2026/1/e80340" target="_blank" rel="noopener">doi:10.2196/80340</a><br>
+  <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:0.75rem;display:block;">Free to share for non-commercial educational purposes. Please credit the author.</span>
+</footer>
+
+<a id="btt" href="#hero" title="Back to top">↑</a>
+
+<script>
+/* ── PROBE ACCORDION ─────────────── */
+function toggleProbe(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+/* ── PROPOSAL ACCORDION ─────────── */
+function toggleProposal(el){
+  el.querySelector('.proposal-body').classList.toggle('open');
+}
+
+/* ── TEAM BUILDER ───────────────── */
+let selectedRoles=[];
+function toggleTeam(card,role){
+  card.classList.toggle('selected');
+  if(card.classList.contains('selected')){
+    selectedRoles.push(role);
+  }else{
+    selectedRoles=selectedRoles.filter(r=>r!==role);
+  }
+  const s=document.getElementById('teamSummary');
+  if(selectedRoles.length===0){
+    s.textContent='Tap roles above to build your team. Your selection will appear here.';
+  }else{
+    s.innerHTML='<strong>Your team ('+selectedRoles.length+' roles):</strong> '+selectedRoles.join(' · ');
+  }
+}
+
+/* ── QUIZ ───────────────────────── */
+function answer(el,qid,result){
+  document.querySelectorAll('#'+qid+' .quiz-opt').forEach(o=>{o.classList.add('disabled','dimmed')});
+  el.classList.remove('dimmed');
+  if(result==='correct'){
+    el.classList.add('correct');
+    el.querySelector('.opt-icon').textContent='✓';
+    document.getElementById(qid+'-fb-correct').classList.add('show');
+  }else{
+    el.classList.add('incorrect');
+    el.querySelector('.opt-icon').textContent='✕';
+    document.getElementById(qid+'-fb-incorrect').classList.add('show');
+  }
+  const r=document.getElementById(qid+'-reset');
+  if(r)r.style.display='block';
+}
+function resetQuiz(qid){
+  document.querySelectorAll('#'+qid+' .quiz-opt').forEach(o=>{
+    o.classList.remove('disabled','dimmed','correct','incorrect');
+    o.querySelector('.opt-icon').textContent='';
+  });
+  document.getElementById(qid+'-fb-correct').classList.remove('show');
+  document.getElementById(qid+'-fb-incorrect').classList.remove('show');
+  const r=document.getElementById(qid+'-reset');
+  if(r)r.style.display='none';
+}
+
+/* ── PROGRESS BAR ───────────────── */
+window.addEventListener('scroll',()=>{
+  const doc=document.documentElement;
+  const scrolled=doc.scrollTop;
+  const total=doc.scrollHeight-doc.clientHeight;
+  document.getElementById('progress-bar').style.width=(scrolled/total*100)+'%';
+  document.getElementById('btt').classList.toggle('show',scrolled>400);
+});
+
+/* ── ACTIVE NAV ─────────────────── */
+const secs=['overview','session1','session2','session3','session4','session5','proposal','resources','mystory'];
+const navLinks=document.querySelectorAll('.nav-links a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      const active=document.querySelector('.nav-links a[href="#'+e.target.id+'"]');
+      if(active)active.classList.add('active');
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
+</script>
+</body>
+</html>
