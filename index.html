@@ -19,10 +19,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --teal:       #1D9E75;
-  --teal-dark:  #0F6E56;
-  --teal-light: #E1F5EE;
-  --teal-pale:  #F0FAF6;
+  --teal:       #C8922A;
+  --teal-dark:  #92650A;
+  --teal-light: #FEF3C7;
+  --teal-pale:  #FFFBEB;
   --green:      #3B6D11;
   --green-mid:  #639922;
   --green-light:#EAF3DE;
@@ -59,7 +59,7 @@ a:hover{color:var(--teal)}
 section{padding:2.75rem 0}
 section+section{border-top:1px solid var(--border)}
 
-#progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--teal);width:0%;z-index:200;transition:width .1s linear}
+#progress-bar{position:fixed;top:0;left:0;height:2px;background:#C8922A;width:0%;z-index:200;transition:width .1s linear}
 
 /* NAV */
 #topnav{position:sticky;top:0;z-index:100;background:rgba(248,249,250,0.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0.75rem 1.25rem}
@@ -75,12 +75,12 @@ section+section{border-top:1px solid var(--border)}
 .sp{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;text-decoration:none}
 .s-done{background:var(--teal-light);color:var(--teal-dark)}
 .s-mid{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25)}
-.s-this{background:#fff;color:var(--teal-dark)}
+.s-this{background:#fff;color:#92650A}
 .s-arr{font-size:11px;color:rgba(255,255,255,0.5)}
 
 /* HERO */
-#hero{padding:3.5rem 0 2.75rem;background:linear-gradient(150deg,var(--teal-dark) 0%,#063d2c 100%);border-bottom:none}
-.hero-kicker{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9FE1CB;margin-bottom:1rem}
+#hero{padding:3.5rem 0 2.75rem;background:linear-gradient(150deg,#92650A 0%,#3D2A02 100%);border-bottom:none}
+.hero-kicker{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#FCD34D;margin-bottom:1rem}
 .hero-title{font-family:var(--font-serif);font-size:clamp(1.9rem,5.5vw,2.8rem);line-height:1.15;color:#fff;margin-bottom:1.1rem}
 .hero-title em{font-style:italic;color:#9FE1CB}
 .hero-sub{font-size:0.9rem;color:rgba(255,255,255,0.78);max-width:530px;margin-bottom:1.75rem;line-height:1.75}
@@ -97,8 +97,8 @@ section+section{border-top:1px solid var(--border)}
 .sthumb-num{font-size:0.68rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;opacity:0.75;margin-bottom:0.3rem}
 .sthumb-title{font-family:var(--font-serif);font-size:0.95rem;line-height:1.3;color:#fff}
 .sthumb-foot{padding:0.55rem 1rem;background:rgba(0,0,0,0.15);font-size:0.7rem;color:rgba(255,255,255,0.72)}
-.c-s1{background:var(--teal-dark)}
-.c-s2{background:#1A6B4A}
+.c-s1{background:#92650A}
+.c-s2{background:#7A4F08}
 .c-s3{background:var(--amber-dark)}
 .c-s4{background:var(--coral-dark)}
 .c-s5{background:var(--purple-dark)}
@@ -117,7 +117,7 @@ section+section{border-top:1px solid var(--border)}
 .prose strong{color:var(--ink);font-weight:600}
 
 .callout{border-radius:var(--r);padding:0.9rem 1.05rem;margin:1.1rem 0;font-size:0.85rem}
-.callout-teal{background:var(--teal-light);border-left:3px solid var(--teal);color:var(--teal-dark)}
+.callout-teal{background:#FEF3C7;border-left:3px solid #C8922A;color:#92650A}
 .callout-green{background:var(--green-light);border-left:3px solid var(--green-mid);color:var(--green)}
 .callout-amber{background:var(--amber-light);border-left:3px solid var(--amber);color:var(--amber-dark)}
 .callout-coral{background:var(--coral-light);border-left:3px solid var(--coral);color:var(--coral-dark)}
@@ -145,7 +145,7 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
 .matrix{border-collapse:collapse;width:100%;min-width:480px;font-size:0.8rem}
 .matrix th,.matrix td{border:1px solid var(--border);padding:0.55rem 0.7rem;vertical-align:top;line-height:1.55}
 .matrix th{font-weight:600;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;background:var(--surface-2);color:var(--ink-3)}
-.matrix td.domain-eth{background:#F0FAF6;color:var(--teal-dark)}
+.matrix td.domain-eth{background:#FFFBEB;color:#92650A}
 .matrix td.domain-tech{background:#FAEEDA;color:var(--amber-dark)}
 .matrix td.domain-epi{background:#EEEDFE;color:var(--purple-dark)}
 .matrix td ul{margin-left:1rem;margin-top:0.25rem}
@@ -222,7 +222,7 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
 /* READING */
 .reading-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:0.9rem 1rem;margin-bottom:0.6rem;display:flex;gap:0.85rem;align-items:flex-start}
 .ricon{width:32px;height:32px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:700}
-.ri-teal{background:var(--teal-light);color:var(--teal-dark)}
+.ri-teal{background:#FEF3C7;color:#92650A}
 .ri-amber{background:var(--amber-light);color:var(--amber-dark)}
 .ri-purple{background:var(--purple-light);color:var(--purple-dark)}
 .ri-blue{background:var(--blue-light);color:var(--blue)}
@@ -256,16 +256,16 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
 #pilot-banner a.pb-btn{display:inline-block;margin-left:0.75rem;background:#fff;color:#0F6E56;font-weight:600;font-size:0.75rem;padding:0.25rem 0.9rem;border-radius:20px;text-decoration:none;transition:background .15s,color .15s}
 #pilot-banner a.pb-btn:hover{background:#E1F5EE;color:#063d2c}
 /* ── COMPLETION SECTION ─────────────────────── */
-#complete{padding:2.5rem 0;background:linear-gradient(135deg,#F0FAF6 0%,#F0F6FD 100%);border-top:2px solid #1D9E75}
+#complete{padding:2.5rem 0;background:linear-gradient(135deg,#FFFBEB 0%,#FEF3C7 100%);border-top:2px solid #C8922A}
 .complete-inner{max-width:740px;margin:0 auto;padding:0 1.25rem}
-.complete-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;color:#0F6E56;margin-bottom:0.5rem}
+.complete-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;color:#92650A;margin-bottom:0.5rem}
 .complete-sub{font-size:0.875rem;color:#6B6B67;margin-bottom:1.25rem;line-height:1.7}
 .complete-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.6rem;margin-bottom:1.25rem}
-.cs{background:#fff;border:1px solid rgba(15,110,86,0.2);border-radius:10px;padding:0.8rem 1rem}
-.cs-num{font-size:0.65rem;font-weight:700;color:#0F6E56;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:3px}
+.cs{background:#fff;border:1px solid rgba(200,146,42,0.2);border-radius:10px;padding:0.8rem 1rem}
+.cs-num{font-size:0.65rem;font-weight:700;color:#92650A;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:3px}
 .cs-text{font-size:0.8rem;color:#3D3D3A;line-height:1.55}
-.complete-btn{display:inline-block;background:#0F6E56;color:#fff;font-weight:600;font-size:0.875rem;padding:0.75rem 2rem;border-radius:10px;text-decoration:none;transition:background .15s;margin-right:0.75rem}
-.complete-btn:hover{background:#063d2c;color:#fff}
+.complete-btn{display:inline-block;background:#92650A;color:#fff;font-weight:600;font-size:0.875rem;padding:0.75rem 2rem;border-radius:10px;text-decoration:none;transition:background .15s;margin-right:0.75rem}
+.complete-btn:hover{background:#5C3D06;color:#fff}
 .complete-note{font-size:0.75rem;color:#9C9A92;margin-top:0.75rem;line-height:1.6}
 
 </style>
@@ -273,10 +273,6 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
 <body>
 
 <div id="progress-bar"></div>
-<div id="pilot-banner">
-  🎓 <strong>Pilot Study:</strong> Register your participation and receive a Certificate of Completion.
-  <a href="https://forms.gle/bhx9gpAubEhaY5x1A" target="_blank" rel="noopener" class="pb-btn">Register now ↗</a>
-</div>
 
 <nav id="topnav">
   <div class="nav-inner">
@@ -307,7 +303,7 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
     </div>
     <p class="hero-kicker">A clinician-led learning programme · third in a three-part series</p>
     <h1 class="hero-title">AI-Savvy<br><em>Clinician</em></h1>
-    <p class="hero-sub">Design or co-design an AI project with the right team, the right ethical foundations, and the right technical rigour — from idea to implementation. Based on <a href="https://ai.jmir.org/2026/1/e80340" target="_blank" rel="noopener" style="color:#9FE1CB;">ETEPAI (Chew &amp; Ngiam, JMIR AI 2026)</a>.</p>
+    <p class="hero-sub">Design or co-design an AI project with the right team, the right ethical foundations, and the right technical rigour — from idea to implementation. Based on <a href="https://ai.jmir.org/2026/1/e80340" target="_blank" rel="noopener" style="color:#FCD34D;">ETEPAI (Chew &amp; Ngiam, JMIR AI 2026)</a>.</p>
     <div class="hero-meta">
       <span class="hero-pill">5 sessions · ~6 hrs total</span>
       <span class="hero-pill">AI-Steady graduates</span>
@@ -339,7 +335,7 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
     <div class="sessions-grid">
       <a class="sthumb c-s1" href="#session1">
         <div class="sthumb-head">
-          <div class="sthumb-num" style="color:#9FE1CB;">Session 1</div>
+          <div class="sthumb-num" style="color:#FCD34D;">Session 1</div>
           <div class="sthumb-title">The ETEPAI framework &amp; readiness probes</div>
         </div>
         <div class="sthumb-foot">75 min · Orientation</div>
@@ -460,7 +456,7 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
     <div class="probe-stage" id="probe-design">
       <div class="probe-head" onclick="toggleProbe('probe-design')">
         <div style="display:flex;align-items:center;gap:0.75rem;">
-          <span class="probe-badge" style="background:var(--teal-light);color:var(--teal-dark);">Stage 1</span>
+          <span class="probe-badge" style="background:#FEF3C7;color:#92650A;">Stage 1</span>
           <span class="probe-title">Design — readiness probes</span>
         </div>
         <span class="probe-chevron">▼</span>
@@ -986,12 +982,12 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
     <p class="sess-eyebrow" style="color:var(--ink-4);">The facilitator</p>
     <h2 class="sess-title">About Prof. Dr. Boon-How Chew</h2>
     <div class="divider"></div>
-    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem 1.75rem;margin-bottom:1.5rem;border-left:4px solid var(--teal);">
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem 1.75rem;margin-bottom:1.5rem;border-left:4px solid #C8922A;">
       <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.8;">ETEPAI was built from the same journey that produced this three-part programme — the recognition that there is a gap between understanding AI and being able to do something useful with it as a clinician. AI-Ready gave you confidence. AI-Steady gave you knowledge. AI-Savvy gives you a framework that is comprehensive enough to be rigorous, and compact enough to actually use.</p>
       <p style="font-size:0.875rem;font-style:italic;color:var(--teal-dark);margin-top:0.875rem;line-height:1.7;">"Applying ETEPAI ensures comprehensive, complete, compact, and crisp consideration from conception to execution — promoting high-quality, ethically sound, and clinically relevant AI tools."</p>
     </div>
     <div style="background:var(--surface-2);border-radius:var(--r-lg);padding:1.25rem 1.5rem;display:flex;gap:1.2rem;align-items:flex-start;">
-      <div style="width:50px;height:50px;border-radius:50%;background:var(--teal-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.15rem;flex-shrink:0;">BC</div>
+      <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#92650A,#C8922A);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.15rem;flex-shrink:0;">BC</div>
       <div>
         <div style="font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">Prof. Dr. Boon-How Chew</div>
         <div style="font-size:0.78rem;color:var(--ink-3);line-height:1.7;margin-bottom:0.6rem;">MD (USM) &nbsp;·&nbsp; MMed Fam. Med. (UM) &nbsp;·&nbsp; PhD (Utrecht)<br>MMC No. 36222 &nbsp;·&nbsp; NSR No. 125625<br>Professor &amp; Consultant Family Medicine Specialist<br>Family Medicine Specialist Clinic, HSAAS Teaching Hospital<br>Department of Family Medicine, Universiti Putra Malaysia (UPM)</div>
@@ -1000,7 +996,7 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
           <a href="https://certificates.emeritus.org/c5c4fd55-198b-4fc8-8513-81d699b9e47c#gs.71pxz4" target="_blank" rel="noopener" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-light);">Credentialed in AI For Healthcare Programme &nbsp;·&nbsp; NUS ↗</a>
         </div>
         <div style="margin-top:0.75rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-          <a href="mailto:chewboonhow@upm.edu.my" style="font-size:0.72rem;font-weight:500;color:var(--teal-dark);text-decoration:none;background:var(--teal-light);padding:0.25rem 0.75rem;border-radius:20px;">chewboonhow@upm.edu.my</a>
+          <a href="mailto:chewboonhow@upm.edu.my" style="font-size:0.72rem;font-weight:500;color:var(--teal-dark);text-decoration:none;background:#FEF3C7;padding:0.25rem 0.75rem;border-radius:20px;">chewboonhow@upm.edu.my</a>
           <a href="https://www.linkedin.com/in/boon-how-chew-80151b6/" target="_blank" rel="noopener" style="font-size:0.72rem;font-weight:500;color:var(--ink-3);text-decoration:none;background:#fff;border:1px solid var(--border);padding:0.25rem 0.75rem;border-radius:20px;">LinkedIn ↗</a>
           <a href="http://orcid.org/0000-0002-8627-6248" target="_blank" rel="noopener" style="font-size:0.72rem;font-weight:500;color:var(--ink-3);text-decoration:none;background:#fff;border:1px solid var(--border);padding:0.25rem 0.75rem;border-radius:20px;">ORCID ↗</a>
         </div>
@@ -1031,7 +1027,7 @@ h3.blk{font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spa
       You will be asked to confirm completion of each session, provide a brief reflection (2–3 sentences),
       and declare that you engaged honestly with all sessions. Your certificate will include a unique
       Certificate ID that can be verified and added to your CPD portfolio or LinkedIn profile.<br><br>
-      Questions? Contact <a href="mailto:chewboonhow@upm.edu.my" style="color:#0F6E56;">chewboonhow@upm.edu.my</a>
+      Questions? Contact <a href="mailto:chewboonhow@upm.edu.my" style="color:#92650A;">chewboonhow@upm.edu.my</a>
     </div>
   </div>
 </section>
