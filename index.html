@@ -112,6 +112,8 @@ section+section{border-top:1px solid var(--border)}
   .sessions-grid-5 .sthumb:nth-child(-n+3){grid-column:span 1}
   .sessions-grid-5 .sthumb:nth-child(n+4){grid-column:span 1}
 }
+.sessions-grid-6{grid-template-columns:repeat(3,1fr)}
+@media(max-width:540px){.sessions-grid-6{grid-template-columns:repeat(2,1fr)}}
 .sthumb{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);text-decoration:none;display:block;transition:transform .18s,box-shadow .18s}
 .sthumb:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
 .sthumb-head{padding:0.9rem 1rem 0.7rem}
@@ -120,9 +122,10 @@ section+section{border-top:1px solid var(--border)}
 .sthumb-foot{padding:0.55rem 1rem;background:rgba(0,0,0,0.15);font-size:0.7rem;color:rgba(255,255,255,0.72)}
 .c-s1{background:#92650A}
 .c-s2{background:#7A4F08}
-.c-s3{background:var(--amber-dark)}
-.c-s4{background:var(--coral-dark)}
-.c-s5{background:var(--purple-dark)}
+.c-s3{background:var(--green)}
+.c-s4{background:#0C447C}
+.c-s5{background:var(--coral-dark)}
+.c-s6{background:var(--purple-dark)}
 
 /* SECTION HEADERS */
 .sess-eyebrow{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.45rem}
@@ -143,6 +146,20 @@ section+section{border-top:1px solid var(--border)}
 .callout-amber{background:var(--amber-light);border-left:3px solid var(--amber);color:var(--amber-dark)}
 .callout-coral{background:var(--coral-light);border-left:3px solid var(--coral);color:var(--coral-dark)}
 .callout-purple{background:var(--purple-light);border-left:3px solid var(--purple);color:var(--purple-dark)}
+.callout-blue{background:var(--blue-light);border-left:3px solid var(--blue);color:#0C447C}
+
+/* ── LIFECYCLE STAGE COLOUR TINGES ─────────────── */
+/* Session background — very subtle wash */
+#session2{background-color:rgba(200,150,40,0.030)}
+#session3{background-color:rgba(59,109,17,0.030)}
+#session4{background-color:rgba(24,95,165,0.030)}
+#session5{background-color:rgba(216,90,48,0.030)}
+
+/* Domain subsection heading strips — light tinge + left accent */
+#session2 h3.blk{background:rgba(200,150,40,0.07);border-left:2px solid rgba(200,150,40,0.45);padding-left:0.55rem;border-radius:0 var(--r) var(--r) 0}
+#session3 h3.blk{background:rgba(59,109,17,0.07);border-left:2px solid rgba(59,109,17,0.45);padding-left:0.55rem;border-radius:0 var(--r) var(--r) 0}
+#session4 h3.blk{background:rgba(24,95,165,0.07);border-left:2px solid rgba(24,95,165,0.45);padding-left:0.55rem;border-radius:0 var(--r) var(--r) 0}
+#session5 h3.blk{background:rgba(216,90,48,0.07);border-left:2px solid rgba(216,90,48,0.45);padding-left:0.55rem;border-radius:0 var(--r) var(--r) 0}
 .callout-title{font-weight:600;margin-bottom:0.25rem;font-size:0.78rem;letter-spacing:0.03em}
 
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1rem 1.2rem;margin-bottom:0.7rem}
@@ -293,7 +310,8 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
 .complete-inner{max-width:760px;margin:0 auto;padding:0 1.25rem}
 .complete-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;color:#92650A;margin-bottom:0.5rem}
 .complete-sub{font-size:0.875rem;color:#6B6B67;margin-bottom:1.25rem;line-height:1.7}
-.complete-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.6rem;margin-bottom:1.25rem}
+.complete-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:0.6rem;margin-bottom:1.25rem}
+@media(max-width:420px){.complete-steps{grid-template-columns:1fr}}
 .cs{background:#fff;border:1px solid rgba(200,146,42,0.2);border-radius:10px;padding:0.8rem 1rem}
 .cs-num{font-size:0.65rem;font-weight:700;color:#92650A;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:3px}
 .cs-text{font-size:0.8rem;color:#3D3D3A;line-height:1.55}
@@ -317,6 +335,7 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
       <a href="#session3">S3</a>
       <a href="#session4">S4</a>
       <a href="#session5">S5</a>
+      <a href="#session6">S6</a>
       <a href="#proposal">Proposal</a>
       <a href="#resources">Resources</a>
       <a href="#mystory">About</a>
@@ -340,7 +359,7 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
     <h1 class="hero-title">AI-Savvy <em>Clinician</em></h1>
     <p class="hero-sub">Design or co-design an AI project with the right team, the right ethical foundations, and the right technical rigour — from idea to implementation. Based on <a href="https://ai.jmir.org/2026/1/e80340" target="_blank" rel="noopener" style="color:#FCD34D;">ETEPAI, JMIR AI 2026</a>.</p>
     <div class="hero-meta">
-      <span class="hero-pill">5 sessions · ~6 hrs total</span>
+      <span class="hero-pill">6 sessions · ~2 hrs self-paced / ~7.5 hrs facilitated</span>
       <span class="hero-pill">AI-Steady graduates</span>
       <a href="https://ai.jmir.org/2026/1/e80340" target="_blank" rel="noopener" class="hero-pill" style="text-decoration:none;">ETEPAI framework ↗</a>
       <span class="hero-pill">AI proposal template included</span>
@@ -367,41 +386,48 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
       Comprehensive, complete, compact, and crisp consideration from conception to execution — promoting high-quality, ethically sound, and clinically relevant AI tools across four stages (Design → Develop → Deploy → Post-deployment) and three domains (Ethics · Technical · Epidemiological).
     </div>
 
-    <div class="sessions-grid sessions-grid-5">
+    <div class="sessions-grid sessions-grid-6">
       <a class="sthumb c-s1" href="#session1">
         <div class="sthumb-head">
           <div class="sthumb-num" style="color:#FCD34D;">Session 1</div>
           <div class="sthumb-title">The ETEPAI framework &amp; readiness probes</div>
         </div>
-        <div class="sthumb-foot">75 min · Orientation</div>
+        <div class="sthumb-foot">~20 min read · Orientation</div>
       </a>
       <a class="sthumb c-s2" href="#session2">
         <div class="sthumb-head">
-          <div class="sthumb-num" style="color:#C0DD97;">Session 2</div>
+          <div class="sthumb-num" style="color:#FCD34D;">Session 2</div>
           <div class="sthumb-title">Design stage — ethics, technical &amp; epi</div>
         </div>
-        <div class="sthumb-foot">75 min · Research design</div>
+        <div class="sthumb-foot">~15 min read · Research design</div>
       </a>
       <a class="sthumb c-s3" href="#session3">
         <div class="sthumb-head">
-          <div class="sthumb-num" style="color:#FAC775;">Session 3</div>
+          <div class="sthumb-num" style="color:#C0DD97;">Session 3</div>
           <div class="sthumb-title">Development stage — building with rigour</div>
         </div>
-        <div class="sthumb-foot">75 min · Technical execution</div>
+        <div class="sthumb-foot">~15 min read · Technical execution</div>
       </a>
       <a class="sthumb c-s4" href="#session4">
         <div class="sthumb-head">
-          <div class="sthumb-num" style="color:#F5C4B3;">Session 4</div>
-          <div class="sthumb-title">Deploy &amp; post-deployment</div>
+          <div class="sthumb-num" style="color:#93C5FD;">Session 4</div>
+          <div class="sthumb-title">Deployment stage — from model to clinical workflow</div>
         </div>
-        <div class="sthumb-foot">75 min · Real-world integration</div>
+        <div class="sthumb-foot">~15 min read · Real-world integration</div>
       </a>
       <a class="sthumb c-s5" href="#session5">
         <div class="sthumb-head">
-          <div class="sthumb-num" style="color:#CECBF6;">Session 5</div>
+          <div class="sthumb-num" style="color:#F5C4B3;">Session 5</div>
+          <div class="sthumb-title">Post-deployment — monitoring, governance &amp; sustainability</div>
+        </div>
+        <div class="sthumb-foot">~15 min read · Post-deployment</div>
+      </a>
+      <a class="sthumb c-s6" href="#session6">
+        <div class="sthumb-head">
+          <div class="sthumb-num" style="color:#CECBF6;">Session 6</div>
           <div class="sthumb-title">Pitfalls, team building &amp; capstone</div>
         </div>
-        <div class="sthumb-foot">90 min · Applied capstone</div>
+        <div class="sthumb-foot">~25 min read · Applied capstone</div>
       </a>
     </div>
 
@@ -468,7 +494,7 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
 <!-- SESSION 1 -->
 <section id="session1">
   <div class="wrap">
-    <p class="sess-eyebrow" style="color:var(--teal);">Session 1 · 75 min · Orientation</p>
+    <p class="sess-eyebrow" style="color:var(--teal);">Session 1 · ~20 min read / 75 min facilitated · Orientation</p>
     <h2 class="sess-title">The ETEPAI framework &amp; readiness probes</h2>
     <p class="sess-desc">Understand why ETEPAI was created, how it differs from existing frameworks, and how to use the probing questions to assess whether your project is ready to proceed at each stage.</p>
     <div class="sess-meta">
@@ -481,6 +507,7 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
     <div class="prose">
       <p>There are now over 30 major guidelines, checklists, and frameworks for AI tool development in healthcare. Each is valuable. But overwhelmed by many similar yet different and lengthy referent materials, developers and stakeholders may overlook the most relevant and essential practices — rendering good materials less effective and <strong>stalling improvement in AI tool production</strong>.</p>
       <p>Common consequences: lack of data and code availability, absence of or small human comparator groups, shortage of real-world clinical relevance, transparency failures, and inappropriate conclusions — causing high risk of bias and research waste. ETEPAI was created to integrate 30 frameworks into one compact yet comprehensive guide.</p>
+      <p>The problem is not confined to frameworks. Clinical AI tools themselves are proliferating — often faster than the evidence to support them. The <em>State of Clinical AI Report 2026</em> (ARISE, Stanford–Harvard Research Network) found that while some models now demonstrate superhuman performance on controlled diagnostic tasks, a stark "jagged frontier" persists: the same models remain brittle when required to recognise their own uncertainty, and traditional benchmark scores have saturated without meaningfully reflecting real-world clinical performance. The report identifies a critical gap — most research continues to evaluate AI under controlled conditions, while prospective, post-deployment, real-world trials remain scarce. Automation bias and workflow deskilling are documented risks. For patient-facing AI, the authors caution that measurable outcome improvements and safeguards against harm must be prioritised, and that patients cannot be assumed to play any oversight role. These are not peripheral concerns: they are the direct consequences of deploying AI tools without the rigour that ETEPAI is designed to enforce — from design through to sustained post-deployment monitoring. <a href="https://arise-ai.org/report" target="_blank" rel="noopener" style="color:var(--teal-dark);font-size:0.85em;">ARISE State of Clinical AI Report 2026 ↗</a></p>
     </div>
 
     <div class="callout callout-teal">
@@ -606,14 +633,19 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
 <!-- SESSION 2 -->
 <section id="session2">
   <div class="wrap">
-    <p class="sess-eyebrow" style="color:var(--green-mid);">Session 2 · 75 min · Research design</p>
+    <p class="sess-eyebrow" style="color:var(--teal);">Session 2 · ~15 min read / 75 min facilitated · Research design</p>
     <h2 class="sess-title">Design stage — ethics, technical &amp; epidemiological</h2>
     <p class="sess-desc">The design stage aligns AI tool development with epidemiological research methodology. Getting this right determines everything that follows. This is where clinicians contribute most uniquely.</p>
     <div class="sess-meta">
-      <span class="tag" style="color:var(--green);border-color:var(--green-light);">Stage 1: Design</span>
-      <span class="tag" style="color:var(--green);border-color:var(--green-light);">Ethics · Technical · Epi</span>
+      <span class="tag" style="color:var(--teal-dark);border-color:var(--teal-light);">Stage 1: Design</span>
+      <span class="tag" style="color:var(--teal-dark);border-color:var(--teal-light);">Ethics · Technical · Epi</span>
     </div>
     <div class="divider"></div>
+
+    <div class="callout callout-teal" style="margin-bottom:1.25rem;">
+      <div class="callout-title">Why the design stage determines everything that follows</div>
+      The design stage is simultaneously the most consequential and most neglected stage of AI tool development. Problems seeded here — a poorly defined outcome, an unrepresentative dataset, an absent comparator, a missing ethics approval — compound at every subsequent stage and cannot be corrected retroactively without starting again. This is also where clinicians are most expert and most needed: every AI tool is ultimately a clinical study, and the rigour of that study is defined entirely at the design stage.
+    </div>
 
     <h3 class="blk">Ethics domain — design stage</h3>
     <ul class="list-clean l-teal">
@@ -635,10 +667,6 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
     </ul>
 
     <h3 class="blk">Epidemiological domain — design stage</h3>
-    <div class="callout callout-purple">
-      <div class="callout-title">The design stage aligns with epidemiological research methodology</div>
-      This is the domain where clinicians are most expert — and most needed. Every AI tool is ultimately a clinical study. It has a research question, a study design, a target population, an exposure (the AI input), an outcome (the prediction target), and sources of bias. Applying epidemiological rigour at the design stage prevents the most common and most serious failures.
-    </div>
     <ul class="list-clean l-purple">
       <li><strong>PICO framework</strong> — Population (who?), Intervention (what does the AI do?), Comparator (compared to what — clinician decision alone? existing tool?), Outcome (what measurable change in care or outcomes?)</li>
       <li><strong>Study design</strong> — diagnostic accuracy study? Prediction model study (TRIPOD-AI)? Clinical trial (CONSORT-AI)? The design determines the reporting framework required.</li>
@@ -646,6 +674,11 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
       <li><strong>Sample size</strong> — how many cases are needed for adequate model training and separate validation? Rule of thumb: at least 10 events per variable for prediction models — often requiring thousands of clinical events.</li>
       <li><strong>Selection bias</strong> — does your dataset systematically exclude certain patients? Missing data is rarely random in clinical settings.</li>
     </ul>
+
+    <div class="callout callout-teal" style="margin-bottom:1.25rem;">
+      <div class="callout-title">The design stage — what must be in place before any data work begins</div>
+      Before any data is extracted or any algorithm selected: the clinical outcome must be defined using PICO, the full team must be assembled, ethics approval and data governance must be in hand, the target population must be specified with its known biases documented, and the study design and reporting framework (TRIPOD-AI for prediction models, CONSORT-AI for trials) must be pre-specified. A project that skips any of these is not beginning early — it is building on sand, and everything built on it will eventually collapse.
+    </div>
 
     <!-- QUIZ 2 -->
     <div class="quiz-block">
@@ -675,14 +708,19 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
 <!-- SESSION 3 -->
 <section id="session3">
   <div class="wrap">
-    <p class="sess-eyebrow" style="color:var(--amber);">Session 3 · 75 min · Technical execution</p>
+    <p class="sess-eyebrow" style="color:var(--green-mid);">Session 3 · ~15 min read / 75 min facilitated · Technical execution</p>
     <h2 class="sess-title">Development stage — building with rigour</h2>
     <p class="sess-desc">The development stage emphasises transparent project execution. This is where technical decisions are made and data science happens — but clinicians have critical responsibilities in labelling, validation oversight, and bias detection.</p>
     <div class="sess-meta">
-      <span class="tag" style="color:var(--amber-dark);border-color:var(--amber-light);">Stage 2: Develop</span>
-      <span class="tag" style="color:var(--amber-dark);border-color:var(--amber-light);">Ethics · Technical · Epi</span>
+      <span class="tag" style="color:var(--green);border-color:var(--green-light);">Stage 2: Develop</span>
+      <span class="tag" style="color:var(--green);border-color:var(--green-light);">Ethics · Technical · Epi</span>
     </div>
     <div class="divider"></div>
+
+    <div class="callout callout-green" style="margin-bottom:1.25rem;">
+      <div class="callout-title">Why the development stage is where good intentions get lost</div>
+      The development stage is where the most technically sophisticated failures occur — and where they are hardest to detect. Information leakage inflates performance metrics invisibly. Class imbalance makes naive models appear better than they are. Undocumented preprocessing decisions make results impossible to reproduce. The clinician's role here is not to write code — it is to ensure that what is being built reflects the clinical reality it is meant to model, and to hold the team accountable to scientific transparency at every step.
+    </div>
 
     <h3 class="blk">Ethics domain — development stage</h3>
     <ul class="list-clean l-teal">
@@ -708,6 +746,11 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
       <li><strong>Confounding variable management</strong> — in clinical data, confounding is pervasive. A model that predicts mortality primarily because sick patients get more tests is learning proxy markers, not pathophysiology.</li>
       <li><strong>Performance metric selection</strong> — choose metrics before seeing results. AUC for discrimination. Calibration plots for probability estimation. Sensitivity/specificity at the clinically relevant operating threshold. All three, not just AUC.</li>
     </ul>
+
+    <div class="callout callout-green" style="margin-bottom:1.25rem;">
+      <div class="callout-title">The development stage — what cannot be absent at the gate to deployment</div>
+      Every model that proceeds from this stage must have: a strictly enforced train/validation/test split with no leakage, inter-rater reliability data (kappa) for all clinically assigned labels, pre-specified performance metrics chosen before results were seen, internal cross-validation results, and a plan for external validation on an independent dataset. Without all five, any claim of clinical readiness is premature — and proceeding to deployment is unsafe.
+    </div>
 
     <!-- QUIZ 3 -->
     <div class="quiz-block">
@@ -737,14 +780,19 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
 <!-- SESSION 4 -->
 <section id="session4">
   <div class="wrap">
-    <p class="sess-eyebrow" style="color:var(--coral);">Session 4 · 75 min · Real-world integration</p>
-    <h2 class="sess-title">Deploy &amp; post-deployment — from model to clinical reality</h2>
-    <p class="sess-desc">Deployment and post-deployment stages focus on real-world implementation. A model that performs excellently in validation can still fail catastrophically in deployment. This is where governance and clinical ownership matter most.</p>
+    <p class="sess-eyebrow" style="color:var(--blue);">Session 4 · ~15 min read / 75 min facilitated · Deployment stage</p>
+    <h2 class="sess-title">Deployment stage — from model to clinical workflow</h2>
+    <p class="sess-desc">A model that performs excellently in validation can still fail catastrophically when it meets a real clinical environment. Deployment is where technical rigour, clinical workflow design, ethics, and institutional governance all converge. Getting this stage right determines whether an AI tool helps or harms.</p>
     <div class="sess-meta">
-      <span class="tag" style="color:var(--coral-dark);border-color:var(--coral-light);">Stages 3 &amp; 4</span>
-      <span class="tag" style="color:var(--coral-dark);border-color:var(--coral-light);">Real-world integration</span>
+      <span class="tag" style="color:var(--blue);border-color:var(--blue-light);">Stage 3 · Deployment</span>
+      <span class="tag" style="color:var(--blue);border-color:var(--blue-light);">Real-world integration</span>
     </div>
     <div class="divider"></div>
+
+    <div class="callout callout-blue" style="margin-bottom:1.25rem;">
+      <div class="callout-title">Why validated models still fail in deployment</div>
+      A model with AUC 0.92 in controlled validation has failed in real clinical use more often than it has succeeded. The reasons are predictable: EMR data quality in production differs from research-grade data; clinical staff interact with AI outputs in ways that were not tested; alert design creates fatigue that overrides even accurate predictions; accountability structures are left undefined until harm occurs. ETEPAI's deployment stage exists to address every one of these risks — before the first patient encounters the tool.
+    </div>
 
     <h3 class="blk">Ethics domain — deployment</h3>
     <ul class="list-clean l-teal">
@@ -762,16 +810,15 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
       <li><strong>Staff training</strong> — clinical staff must understand what the tool does, what it does not do, how to interpret its outputs, and how to report concerns. This is not optional.</li>
     </ul>
 
-    <h3 class="blk">Epidemiological domain — deployment &amp; post-deployment</h3>
+    <h3 class="blk">Epidemiological domain — deployment</h3>
     <ul class="list-clean l-purple">
       <li><strong>External validation in deployment setting</strong> — validate the model prospectively on the actual patient population in the actual clinical environment before full deployment.</li>
       <li><strong>Decision curve analysis</strong> — does acting on the model's recommendations actually improve clinical decisions across a range of threshold probabilities? Net benefit analysis quantifies clinical utility.</li>
       <li><strong>Health technology assessment</strong> — does the benefit justify the cost? What is the incremental cost-effectiveness ratio? This is increasingly required for institutional adoption decisions.</li>
-      <li><strong>Prospective real-world evidence study</strong> — measuring model performance metrics is not the same as measuring clinical impact. A well-designed prospective study or RCT is the gold standard for demonstrating that the AI tool actually improves patient outcomes.</li>
-      <li><strong>Post-market surveillance (model drift)</strong> — patient populations change, clinical practices evolve, and data collection methods shift. A model that performs well at deployment may degrade silently. Continuous monitoring with pre-specified drift detection thresholds is essential.</li>
+      <li><strong>Prospective real-world evidence study design</strong> — plan the study that will measure clinical impact before deployment begins. Measuring model performance metrics is not the same as measuring patient outcomes. A well-designed prospective study or pragmatic RCT is required to demonstrate that the tool actually improves care.</li>
     </ul>
 
-    <div class="callout callout-coral">
+    <div class="callout callout-blue">
       <div class="callout-title">The accountability question every clinician must be able to answer</div>
       If this AI tool contributes to a patient harm — who is responsible? The clinician who acted on it? The hospital that deployed it without adequate governance? The vendor who built it without adequate validation? ETEPAI requires that accountability structures be defined before deployment — not assigned after harm.
     </div>
@@ -780,20 +827,20 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
     <div class="quiz-block">
       <div class="quiz-header"><span class="quiz-badge">Reflection</span><span class="quiz-title-text">Session 4 — Check your understanding</span></div>
       <div class="quiz-body">
-        <div class="quiz-q">Six months after deploying a model that predicts deterioration in ward patients, the clinical team reports the model seems to be performing worse than at launch — more false alarms, fewer true detections. No formal monitoring system is in place. According to ETEPAI post-deployment requirements, what is this an example of and what should have been in place?</div>
+        <div class="quiz-q">You are deploying a validated AI tool that predicts deterioration risk in ward patients. Before making it live — meaning before any clinical decision is influenced by its output — you run it in parallel with clinical workflow for six weeks, collecting its predictions silently without acting on them. Which ETEPAI deployment requirement does this represent, and why is it the correct first step?</div>
         <div class="quiz-options" id="q4">
-          <div class="quiz-opt" onclick="answer(this,'q4','wrong')"><div class="opt-icon"></div>Hallucination — the model is generating incorrect outputs that were not present at training.</div>
-          <div class="quiz-opt" onclick="answer(this,'q4','correct')"><div class="opt-icon"></div>Model drift — gradual performance degradation as real-world conditions change — and the missing element is a continuous monitoring system with pre-specified drift detection thresholds.</div>
-          <div class="quiz-opt" onclick="answer(this,'q4','wrong')"><div class="opt-icon"></div>Overfitting — the model was too closely fitted to training data and was always going to perform poorly in deployment.</div>
-          <div class="quiz-opt" onclick="answer(this,'q4','wrong')"><div class="opt-icon"></div>Alert fatigue — clinical staff have stopped trusting the model because it fires too frequently.</div>
+          <div class="quiz-opt" onclick="answer(this,'q4','wrong')"><div class="opt-icon"></div>External validation — testing the model on new patient data from a different institution to assess generalisability before deployment.</div>
+          <div class="quiz-opt" onclick="answer(this,'q4','wrong')"><div class="opt-icon"></div>Health technology assessment — evaluating whether the cost of running the model is justified by the clinical benefit it provides.</div>
+          <div class="quiz-opt" onclick="answer(this,'q4','correct')"><div class="opt-icon"></div>Sandboxing (shadow mode) — running the model in production without influencing clinical decisions, to observe real-world integration performance, alert workflow friction, and staff interpretation of outputs before any patient depends on it.</div>
+          <div class="quiz-opt" onclick="answer(this,'q4','wrong')"><div class="opt-icon"></div>Internal validation — evaluating the model on a held-out portion of the original training dataset to confirm it has not overfit.</div>
         </div>
         <div class="quiz-feedback fb-correct" id="q4-fb-correct">
           <div class="fb-label">Correct</div>
-          Model drift occurs when the distribution of real-world data diverges from the training data — due to changes in patient population, clinical practices, data entry conventions, or seasonal disease patterns. ETEPAI's post-deployment requirements explicitly include: continuous performance monitoring, pre-specified drift detection thresholds, and a governance pathway for model review or withdrawal when thresholds are breached. The absence of this system is a governance failure, not a technical inevitability.
+          Sandboxing (shadow mode) is the ETEPAI Technical domain requirement for deployment: run the model in parallel with clinical practice without acting on outputs for a defined observation period. This reveals problems that even rigorous controlled validation cannot — EMR data quality in production conditions, alert design friction, staff interpretation accuracy, system compatibility issues, and latency under real load. It is a patient safety step: no patient's clinical management should depend on a model until it has been observed functioning correctly in the actual deployment environment. External and internal validation are Development stage steps; HTA is an economic evaluation step.
         </div>
         <div class="quiz-feedback fb-incorrect" id="q4-fb-incorrect">
           <div class="fb-label">Look again</div>
-          The scenario describes model drift — a real-world performance degradation over time as conditions change. This is expected in any deployed AI system, which is why ETEPAI's post-deployment requirements include continuous monitoring and pre-specified drift thresholds. Overfitting would have been apparent at external validation; hallucination describes incorrect outputs at the individual level; alert fatigue describes workflow consequences of excessive alerts.
+          The scenario describes sandboxing or shadow mode — an ETEPAI Technical deployment requirement where the model runs in production without influencing clinical decisions. External validation tests generalisability across institutions and belongs to the Development stage. Internal validation tests for overfitting on the original data — also Development stage. Health technology assessment evaluates cost-effectiveness. Sandboxing is specifically about safe real-world integration before live clinical use begins.
         </div>
         <div class="quiz-reset" onclick="resetQuiz('q4')" id="q4-reset">Try again</div>
       </div>
@@ -804,7 +851,82 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
 <!-- SESSION 5 -->
 <section id="session5">
   <div class="wrap">
-    <p class="sess-eyebrow" style="color:var(--purple);">Session 5 · 90 min · Applied capstone</p>
+    <p class="sess-eyebrow" style="color:var(--coral);">Session 5 · ~15 min read / 75 min facilitated · Post-deployment governance</p>
+    <h2 class="sess-title">Post-deployment — monitoring, governing, and sustaining clinical AI</h2>
+    <p class="sess-desc">Deploying an AI tool is not the finish line. It is the beginning of a continuous obligation. Post-deployment is where AI tools most commonly fail — silently, gradually, and without adequate governance. ETEPAI's post-deployment stage defines what sustained accountability looks like in practice, and why clinicians are central to it.</p>
+    <div class="sess-meta">
+      <span class="tag" style="color:var(--coral-dark);border-color:var(--coral-light);">Stage 4 · Post-deployment</span>
+      <span class="tag" style="color:var(--coral-dark);border-color:var(--coral-light);">Monitoring &amp; governance</span>
+      <span class="tag" style="color:var(--coral-dark);border-color:var(--coral-light);">Sustainability</span>
+    </div>
+    <div class="divider"></div>
+
+    <div class="callout callout-coral" style="margin-bottom:1.25rem;">
+      <div class="callout-title">The governance gap — and why it matters</div>
+      A 2025 review found that only 9% of FDA-registered AI-based healthcare tools include a post-deployment surveillance plan. ETEPAI makes post-deployment governance a mandatory requirement — not an aspiration. The probing questions for this stage ask: Does the AI model have the intended impact? How often should it be updated, and who is responsible? Is governance in place to monitor safety, detect errors, and audit the broader ecosystem?
+    </div>
+
+    <h3 class="blk">Ethics domain — post-deployment</h3>
+    <ul class="list-clean l-teal">
+      <li><strong>Active harm detection and redress</strong> — governance must be in place to detect harm, execute redress plans, and activate a human rollback mechanism when needed. Who can disengage or deactivate the AI model? What is the threshold for doing so? What happens to patients affected before deactivation? These must be defined before deployment — not improvised after harm occurs.</li>
+      <li><strong>Pre-specified performance review cycles</strong> — regularly scheduled, structured review of the AI tool's performance against all stakeholder groups — not ad hoc responses to complaints. Quarterly reviews with pre-specified metrics are an ethical standard, not merely a technical convenience.</li>
+      <li><strong>Ongoing transparency obligations</strong> — clinical users, institutional management, and where appropriate patients should receive periodic reports on the tool's real-world performance. A tool's declining effectiveness is not proprietary information to be managed internally.</li>
+      <li><strong>Environmental and sustainability accountability</strong> — the long-term computational, human, and financial cost of sustaining the AI tool must be periodically reassessed. A tool that becomes unaffordable or resource-intensive without commensurate clinical benefit should be formally reviewed for retirement.</li>
+    </ul>
+
+    <h3 class="blk">Technical domain — post-deployment</h3>
+    <ul class="list-clean l-amber">
+      <li><strong>Documentation and knowledge transfer</strong> — maintain living documentation of the model, its training data, its assumptions, and its known limitations. Engage continuously with clinical users and support staff. Institutional memory of why and how the tool works must not reside in one person — turnover is inevitable.</li>
+      <li><strong>Regular technical performance review</strong> — the standard is not "is the tool still running?" It is: does it continue to have its intended impact? Is it filling a clinical gap? Is it improving health care? These are substantive questions requiring structured data, not subjective impressions.</li>
+      <li><strong>Maintenance, verification, and validation of updates</strong> — any change to the model, its input data sources, or the clinical environment it operates in constitutes a new version requiring re-verification. Version control must be documented and auditable. Undocumented model updates are a patient safety risk.</li>
+      <li><strong>Ecosystem audit</strong> — periodic structured review of the broader system in which the AI tool operates: data pipeline integrity, EMR system updates, changes to clinical workflows, staffing changes, and institutional policy shifts that could affect model performance or continued appropriateness.</li>
+      <li><strong>Full algorithmic audit</strong> — a deep independent review of the algorithm's logic, training data, performance across all patient subgroups, and alignment with current clinical standards. Distinct from routine monitoring; should occur at defined intervals and be conducted by parties independent of the development team.</li>
+      <li><strong>Health economic evaluation at operational scale</strong> — once real-world outcome data are available, reassess cost-effectiveness. The incremental cost-effectiveness ratio calculated at design stage must be revisited with actual data — pre-deployment estimates frequently diverge from operational reality.</li>
+    </ul>
+
+    <h3 class="blk">Epidemiological domain — post-deployment</h3>
+    <ul class="list-clean l-purple">
+      <li><strong>Safety and errors monitoring</strong> — systematic, structured monitoring and reporting of any risks to patient safety or instances of harm caused or contributed to by the AI tool. A formal reporting pathway must exist, connected to institutional clinical governance and — where regulatory obligations apply — to national authorities. This is a professional obligation, not an optional incident log.</li>
+      <li><strong>Usability evaluation</strong> — periodic formal assessment of how clinical staff actually interact with the tool in practice. Are outputs being interpreted correctly? Are recommendations being followed when they should be, and overridden when appropriate? Is deskilling occurring? Is alert fatigue growing? User behaviour data answer these questions; impressions do not.</li>
+      <li><strong>Real-world clinical impact studies</strong> — model accuracy does not equal patient benefit. A prospective study or pragmatic RCT measuring actual patient outcomes attributable to the tool's use is the gold standard for demonstrating clinical utility. This study should be designed before deployment and executed post-deployment — not proposed retrospectively when questioned about effectiveness.</li>
+      <li><strong>Model drift detection with statistical rigour</strong> — ongoing testing of model performance against pre-specified statistical thresholds. Patient populations change, clinical practices evolve, data entry conventions shift, and seasonal disease patterns vary. A model that performs well at deployment may degrade silently over months. Detection requires statistically valid, label-efficient testing frameworks — not manual, sporadic review by the team that built the model.</li>
+      <li><strong>Reporting to governance bodies and registries</strong> — findings from post-deployment monitoring should be reported to institutional clinical governance committees, national AI health registries, and — where the tool is classified as a medical device — to regulatory authorities. The regulatory obligation does not end at registration; post-market surveillance is an ongoing legal and ethical requirement in most jurisdictions.</li>
+    </ul>
+
+    <div class="callout callout-coral">
+      <div class="callout-title">The accountability question that post-deployment must answer</div>
+      Twelve months after deployment, is this tool still doing what it was built to do? Is it doing it safely, equitably, and cost-effectively? Can you prove it with data? If the answer to any of these questions is "we don't know" — post-deployment governance has failed. ETEPAI requires that the infrastructure to answer these questions is built before deployment, not sought after problems emerge.
+    </div>
+
+    <!-- QUIZ 5 -->
+    <div class="quiz-block">
+      <div class="quiz-header"><span class="quiz-badge">Reflection</span><span class="quiz-title-text">Session 5 — Check your understanding</span></div>
+      <div class="quiz-body">
+        <div class="quiz-q">An AI sepsis early warning system has been running in a hospital ICU for 18 months. The nursing team reports dismissing alerts more frequently than at launch. No formal post-deployment monitoring system is in place. From the ETEPAI post-deployment perspective, which statement most precisely describes what has failed?</div>
+        <div class="quiz-options" id="q5">
+          <div class="quiz-opt" onclick="answer(this,'q5','wrong')"><div class="opt-icon"></div>Alert fatigue — the solution is to reduce alert sensitivity so fewer alerts are generated.</div>
+          <div class="quiz-opt" onclick="answer(this,'q5','wrong')"><div class="opt-icon"></div>Model drift — the model has degraded and is producing more false positives than at deployment.</div>
+          <div class="quiz-opt" onclick="answer(this,'q5','correct')"><div class="opt-icon"></div>A governance failure: the absence of formal post-deployment monitoring means the system cannot distinguish model drift from user adaptation, cannot attribute cause to any specific failure mode, and cannot intervene systematically — making the observed problem unresolvable through evidence.</div>
+          <div class="quiz-opt" onclick="answer(this,'q5','wrong')"><div class="opt-icon"></div>Overfitting at the development stage — the model was always going to perform poorly and this was predictable.</div>
+        </div>
+        <div class="quiz-feedback fb-correct" id="q5-fb-correct">
+          <div class="fb-label">Correct</div>
+          Alert fatigue and model drift are both plausible contributors — but without formal post-deployment monitoring (structured safety and errors reporting, usability evaluation, and statistically valid performance monitoring), there is no data to distinguish between them. The root failure is governance: ETEPAI requires that monitoring, usability evaluation, and performance review systems are in place before deployment — not constructed after problems are reported anecdotally.
+        </div>
+        <div class="quiz-feedback fb-incorrect" id="q5-fb-incorrect">
+          <div class="fb-label">Look again</div>
+          Alert fatigue and model drift are symptoms that may or may not be present — but without formal monitoring infrastructure, neither can be confirmed or distinguished. The central failure here is governance: ETEPAI's post-deployment requirements — safety monitoring, usability evaluation, pre-specified performance review cycles — exist precisely to make these distinctions possible and to enable evidence-based intervention rather than reactive adjustment.
+        </div>
+        <div class="quiz-reset" onclick="resetQuiz('q5')" id="q5-reset">Try again</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION 6 -->
+<section id="session6">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--purple);">Session 6 · ~25 min read / 90 min facilitated · Applied capstone</p>
     <h2 class="sess-title">Pitfalls, team building &amp; capstone project</h2>
     <p class="sess-desc">The most common failure modes in AI tool development — and how to avoid them. Then build your own team, apply ETEPAI to a real clinical problem, and leave with a project outline you can actually use.</p>
     <div class="sess-meta">
@@ -859,24 +981,24 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
 
     <!-- QUIZ 5 — CAPSTONE -->
     <div class="quiz-block" style="margin-top:1.75rem;">
-      <div class="quiz-header"><span class="quiz-badge">Capstone</span><span class="quiz-title-text">Session 5 — Full programme capstone</span></div>
+      <div class="quiz-header"><span class="quiz-badge">Capstone</span><span class="quiz-title-text">Session 6 — Full programme capstone</span></div>
       <div class="quiz-body">
         <div class="quiz-q">You are the clinical champion for a new AI project to detect early chronic kidney disease progression from primary care EMR data in Malaysia. You have institutional support and a data scientist partner. Using ETEPAI, which of the following correctly describes what you should complete at the Design stage before any data work begins?</div>
-        <div class="quiz-options" id="q5">
-          <div class="quiz-opt" onclick="answer(this,'q5','wrong')"><div class="opt-icon"></div>Obtain a large dataset, split it into train and test, and run a baseline logistic regression model to see if the problem is feasible.</div>
-          <div class="quiz-opt" onclick="answer(this,'q5','wrong')"><div class="opt-icon"></div>Apply for ethics approval, then begin model development while waiting for the approval to come through.</div>
-          <div class="quiz-opt" onclick="answer(this,'q5','correct')"><div class="opt-icon"></div>Define the clinical outcome (PICO), assemble the full team including ethicist, data governance officer, biostatistician, and patient representative, obtain ethics approval and data governance agreement, audit data quality and representativeness, and pre-specify the study design and reporting framework — before any data extraction.</div>
-          <div class="quiz-opt" onclick="answer(this,'q5','wrong')"><div class="opt-icon"></div>Register the AI tool with MDA Malaysia before beginning development, since it will eventually be used clinically.</div>
+        <div class="quiz-options" id="q6">
+          <div class="quiz-opt" onclick="answer(this,'q6','wrong')"><div class="opt-icon"></div>Obtain a large dataset, split it into train and test, and run a baseline logistic regression model to see if the problem is feasible.</div>
+          <div class="quiz-opt" onclick="answer(this,'q6','wrong')"><div class="opt-icon"></div>Apply for ethics approval, then begin model development while waiting for the approval to come through.</div>
+          <div class="quiz-opt" onclick="answer(this,'q6','correct')"><div class="opt-icon"></div>Define the clinical outcome (PICO), assemble the full team including ethicist, data governance officer, biostatistician, and patient representative, obtain ethics approval and data governance agreement, audit data quality and representativeness, and pre-specify the study design and reporting framework — before any data extraction.</div>
+          <div class="quiz-opt" onclick="answer(this,'q6','wrong')"><div class="opt-icon"></div>Register the AI tool with MDA Malaysia before beginning development, since it will eventually be used clinically.</div>
         </div>
-        <div class="quiz-feedback fb-correct" id="q5-fb-correct">
+        <div class="quiz-feedback fb-correct" id="q6-fb-correct">
           <div class="fb-label">Outstanding — you are AI-Savvy</div>
           This is the complete ETEPAI Design stage checklist applied correctly. Every element — PICO outcome definition, full team assembly (including roles clinicians often overlook: ethicist, data governance, biostatistician, patient representative), ethics and governance approval, data quality audit, and pre-specified study design with the relevant reporting framework (TRIPOD-AI for a prediction model) — must be completed before data extraction begins. You are now equipped to design or co-design an AI project from a position of genuine competence. That is what AI-Savvy means.
         </div>
-        <div class="quiz-feedback fb-incorrect" id="q5-fb-incorrect">
+        <div class="quiz-feedback fb-incorrect" id="q6-fb-incorrect">
           <div class="fb-label">Review the Design stage probes</div>
           The complete Design stage requires: (1) PICO outcome definition, (2) full team assembly including roles beyond just clinician and data scientist, (3) ethics approval and data governance agreement obtained before any data work, (4) data quality and representativeness audit, (5) pre-specified study design and reporting framework. ETEPAI's probing questions for the Design stage are a checklist for exactly this — revisit them before your capstone exercise.
         </div>
-        <div class="quiz-reset" onclick="resetQuiz('q5')" id="q5-reset">Try again</div>
+        <div class="quiz-reset" onclick="resetQuiz('q6')" id="q6-reset">Try again</div>
       </div>
     </div>
 
@@ -1136,15 +1258,16 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
   <div class="complete-inner">
     <div class="complete-title">Completed the programme?</div>
     <div class="complete-sub">
-      If you have worked through all 5 sessions (~6 hours), you are ready to claim your Certificate of Completion.
+      If you have worked through all 6 sessions (~7.5 hours), you are ready to claim your Certificate of Completion.
       The form below takes about 5 minutes. You will receive your personalised certificate by email within 60 seconds of submitting.
     </div>
     <div class="complete-steps">
-      <div class="cs"><div class="cs-num">Session 1</div><div class="cs-text">Session 1 — The ETEPAI framework &amp; readiness probes</div></div>
-<div class="cs"><div class="cs-num">Session 2</div><div class="cs-text">Session 2 — Design stage — ethics, technical &amp; epidemiological</div></div>
-<div class="cs"><div class="cs-num">Session 3</div><div class="cs-text">Session 3 — Development stage — building with rigour</div></div>
-<div class="cs"><div class="cs-num">Session 4</div><div class="cs-text">Session 4 — Deploy &amp; post-deployment</div></div>
-<div class="cs"><div class="cs-num">Session 5</div><div class="cs-text">Session 5 — Pitfalls, team building &amp; capstone</div></div>
+      <div class="cs"><div class="cs-num">Session 1</div><div class="cs-text">The ETEPAI framework &amp; readiness probes</div></div>
+      <div class="cs"><div class="cs-num">Session 2</div><div class="cs-text">Design stage — ethics, technical &amp; epidemiological</div></div>
+      <div class="cs"><div class="cs-num">Session 3</div><div class="cs-text">Development stage — building with rigour</div></div>
+      <div class="cs"><div class="cs-num">Session 4</div><div class="cs-text">Deployment stage — from model to clinical workflow</div></div>
+      <div class="cs"><div class="cs-num">Session 5</div><div class="cs-text">Post-deployment — monitoring, governing, and sustaining clinical AI</div></div>
+      <div class="cs"><div class="cs-num">Session 6</div><div class="cs-text">Pitfalls, team building &amp; capstone project</div></div>
     </div>
     <a href="https://forms.gle/5WtwiWf22kqtJ8A39" target="_blank" rel="noopener" class="complete-btn">
       Claim my certificate ↗
@@ -1234,7 +1357,7 @@ window.addEventListener('scroll',()=>{
 });
 
 /* ── ACTIVE NAV ─────────────────── */
-const secs=['overview','session1','session2','session3','session4','session5','proposal','resources','mystory'];
+const secs=['overview','session1','session2','session3','session4','session5','session6','proposal','resources','mystory'];
 const navLinks=document.querySelectorAll('.nav-links a');
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
