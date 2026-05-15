@@ -319,6 +319,67 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
 .complete-btn:hover{background:#5C3D06;color:#fff}
 .complete-note{font-size:0.75rem;color:#9C9A92;margin-top:0.75rem;line-height:1.6}
 
+
+/* ── CONCISE AI GOVERNANCE SECTION ─────────────── */
+.gov-compact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin:1.1rem 0 1rem}
+.gov-compact-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1rem 1.05rem}
+.gov-compact-kicker{font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:0.25rem}
+.gov-compact-title{font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.35rem;line-height:1.35}
+.gov-compact-body{font-size:0.8rem;color:var(--ink-3);line-height:1.6}
+.gov-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0.55rem;margin:1rem 0}
+.gov-flow-step{background:linear-gradient(180deg,#fff,#FFFBEB);border:1px solid rgba(200,146,42,0.23);border-radius:var(--r);padding:0.85rem 0.85rem}
+.gov-flow-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--teal-dark);color:#fff;font-size:0.68rem;font-weight:700;margin-bottom:0.45rem}
+.gov-flow-title{font-size:0.82rem;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:0.25rem}
+.gov-flow-body{font-size:0.76rem;color:var(--ink-3);line-height:1.55}
+.gov-rule{background:#fff;border:1px solid rgba(200,146,42,0.28);border-left:4px solid var(--teal);border-radius:var(--r-lg);padding:1rem 1.15rem;margin-top:1rem}
+.gov-rule-title{font-size:0.78rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:0.35rem}
+.gov-rule-body{font-size:0.86rem;color:var(--ink-2);line-height:1.7}
+.gov-mini-table{width:100%;border-collapse:collapse;margin:0.85rem 0;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;font-size:0.78rem}
+.gov-mini-table th{background:var(--teal-light);color:var(--teal-dark);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.05em;text-align:left;padding:0.55rem 0.7rem}
+.gov-mini-table td{border-top:1px solid var(--border);padding:0.6rem 0.7rem;vertical-align:top;color:var(--ink-3);line-height:1.55}
+.gov-mini-table td strong{color:var(--ink)}
+@media(max-width:650px){.gov-compact-grid,.gov-flow{grid-template-columns:1fr}.gov-mini-table{display:block;overflow-x:auto}}
+
+/* ── Footer programme navigation beside certificate button ── */
+.complete-actions{display:flex;flex-wrap:wrap;gap:0.55rem;align-items:center;margin-top:0.25rem;margin-bottom:0.75rem}
+.complete-actions .complete-btn{margin-right:0}
+.complete-nav-btn{display:inline-flex;align-items:center;justify-content:center;gap:0.3rem;font-size:0.76rem;font-weight:700;padding:0.62rem 0.95rem;border-radius:999px;text-decoration:none!important;background:#fff;color:var(--ink-2)!important;border:1px solid rgba(26,26,24,0.12);box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:transform .15s,background .15s,color .15s,border-color .15s}
+.complete-nav-btn:hover{transform:translateY(-1px);background:var(--surface-2);color:var(--ink)!important;text-decoration:none!important}
+.complete-nav-btn.idx{background:#111827;color:#fff!important;border-color:#111827}
+.complete-nav-btn.ready{background:#E1F5EE;color:#0F6E56!important;border-color:rgba(15,110,86,0.25)}
+.complete-nav-btn.steady{background:#E6F1FB;color:#0C447C!important;border-color:rgba(24,95,165,0.25)}
+.complete-nav-btn.savvy{background:#FEF3C7;color:#92650A!important;border-color:rgba(200,146,42,0.28)}
+@media(max-width:520px){.complete-actions{flex-direction:column;align-items:stretch}.complete-actions .complete-btn,.complete-nav-btn{width:100%;text-align:center}}
+
+/* ── Interactive governance map card ───────────────── */
+.gov-map-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.05rem 1.1rem;margin:1rem 0;box-shadow:0 4px 14px rgba(0,0,0,0.035)}
+.gov-map-head{display:flex;justify-content:space-between;align-items:flex-start;gap:0.75rem;margin-bottom:0.75rem}
+.gov-map-kicker{font-size:0.64rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.1rem}
+.gov-map-title{font-family:var(--font-serif);font-size:1.25rem;line-height:1.15;color:var(--ink)}
+.gov-map-badge{font-size:0.68rem;font-weight:700;color:#92650A;background:#FEF3C7;border:1px solid rgba(200,146,42,0.35);border-radius:999px;padding:0.25rem 0.65rem;white-space:nowrap}
+.gov-map-lead{font-size:0.84rem;color:var(--ink-2);line-height:1.65;background:var(--teal-pale);border-left:3px solid var(--teal);border-radius:var(--r);padding:0.75rem 0.9rem;margin-bottom:0.85rem}
+.gov-layer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.55rem;margin-bottom:0.85rem}
+.gov-layer{border:1px solid var(--border);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.gov-layer[open]{background:#fff;border-color:rgba(200,146,42,0.35);box-shadow:0 3px 12px rgba(0,0,0,0.04)}
+.gov-layer summary{list-style:none;display:flex;align-items:center;gap:0.55rem;cursor:pointer;padding:0.65rem 0.75rem}
+.gov-layer summary::-webkit-details-marker{display:none}
+.gov-layer-no{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;background:var(--teal-dark);color:#fff;font-size:0.72rem;font-weight:800}
+.gov-layer summary strong{display:block;font-size:0.82rem;color:var(--ink)}
+.gov-layer summary small{display:block;font-size:0.68rem;color:var(--ink-4);margin-top:0.05rem}
+.gov-layer p{font-size:0.78rem;color:var(--ink-2);line-height:1.55;padding:0 0.8rem 0.75rem 2.55rem;margin:0}
+.gov-traffic{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;margin:0.65rem 0 0.85rem}
+.gov-traffic-item{border-radius:var(--r);padding:0.7rem 0.75rem;border:1px solid var(--border);font-size:0.76rem;line-height:1.45;background:#fff}
+.gov-traffic-item b{display:block;font-size:0.76rem;margin-bottom:0.2rem;color:var(--ink)}
+.gov-traffic-item span{color:var(--ink-3)}
+.gov-traffic-item.green{background:#EAF5EE;border-color:rgba(15,110,86,0.2)}
+.gov-traffic-item.amber{background:#FFFBEB;border-color:rgba(200,146,42,0.25)}
+.gov-traffic-item.red{background:#FAECE7;border-color:rgba(216,90,48,0.25)}
+.gov-checkstrip{font-size:0.81rem;line-height:1.6;color:var(--ink-2);border:1px dashed rgba(146,101,10,0.45);border-radius:var(--r);padding:0.75rem 0.85rem;background:#fff}
+.gov-checkstrip strong{color:var(--teal-dark)}
+.gov-map-takeaway{margin-top:0.65rem;border-radius:var(--r);background:#1f2937;color:rgba(255,255,255,0.86);font-size:0.82rem;line-height:1.6;padding:0.8rem 0.9rem}
+.gov-map-takeaway strong{color:#FCD34D}
+@media(max-width:620px){.gov-map-head{flex-direction:column}.gov-map-badge{white-space:normal}.gov-layer-grid,.gov-traffic{grid-template-columns:1fr}.gov-layer p{padding-left:0.8rem}}
+
 </style>
 </head>
 <body>
@@ -337,6 +398,7 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
       <a href="#session5">S5</a>
       <a href="#session6">S6</a>
       <a href="#proposal">Proposal</a>
+      <a href="#governance">Governance</a>
       <a href="#resources">Resources</a>
       <a href="#mystory">About</a>
     </div>
@@ -1180,6 +1242,142 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
   </div>
 </section>
 
+
+<!-- AI GOVERNANCE — concise clinical practice section -->
+<section id="governance">
+  <div class="wrap">
+    <p class="sess-eyebrow" style="color:var(--teal);">Reference section · clinical AI governance</p>
+    <h2 class="sess-title">AI Governance: keeping useful clinical AI safe after it works</h2>
+    <p class="sess-desc">Governance is not bureaucracy added after innovation. In clinical AI, governance is the system of responsibility that decides whether an AI tool is safe enough to use, who is accountable for it, how it is monitored, and when it must be changed, paused, or withdrawn.</p>
+
+    <div class="callout callout-teal">
+      <div class="callout-title">The core message for clinicians</div>
+      <p style="margin-bottom:0.55rem;">Clinical AI is no longer a future idea. It is already flooding healthcare — from regulated devices to consumer-facing apps — but many tools have not yet been properly tested for real clinical impact, local patients, workflow fit, bias, or long-term safety.</p>
+      <p style="margin-bottom:0.55rem;"><strong>Governance is the discipline that turns “this AI looks useful” into “this AI is safe, accountable, monitored, and appropriate for our clinical service.”</strong></p>
+      <p style="margin-bottom:0;">Before any AI tool is used in care, clinicians should be able to answer: <strong>What problem does it solve? For which patients? With what evidence? Under whose responsibility? How will errors, bias, drift, privacy breaches, and patient harm be detected, reported, corrected, or stopped?</strong> If these answers are unclear, the tool is not yet service-ready — no matter how impressive the demo looks. <a href="https://arise-ai.org/report" target="_blank" rel="noopener" style="color:#92650A;font-weight:700;text-decoration:underline;text-underline-offset:2px;">State of Clinical AI 2026 ↗</a></p>
+    </div>
+
+    <div class="gov-compact-grid">
+      <div class="gov-compact-card">
+        <div class="gov-compact-kicker">What it means</div>
+        <div class="gov-compact-title">Governance answers “who is responsible?”</div>
+        <div class="gov-compact-body">It defines who owns the tool, who approves it, who checks its performance, who receives incident reports, and who has authority to update or stop it.</div>
+      </div>
+      <div class="gov-compact-card">
+        <div class="gov-compact-kicker">Why it matters</div>
+        <div class="gov-compact-title">Clinical AI can fail quietly</div>
+        <div class="gov-compact-body">Errors may appear as plausible advice, biased outputs, alert fatigue, workflow disruption, outdated recommendations, privacy leakage, or over-trust by busy clinicians.</div>
+      </div>
+      <div class="gov-compact-card">
+        <div class="gov-compact-kicker">Where it applies</div>
+        <div class="gov-compact-title">Every clinical AI tool needs a governance level</div>
+        <div class="gov-compact-body">A teaching demo needs light governance. A patient-facing tool, decision support tool, or tool using identifiable data needs formal review, validation, and monitoring.</div>
+      </div>
+    </div>
+
+    <h3 class="blk">Four governance questions before clinical service use</h3>
+    <div class="gov-flow">
+      <div class="gov-flow-step">
+        <div class="gov-flow-num">1</div>
+        <div class="gov-flow-title">What is the intended use?</div>
+        <div class="gov-flow-body">Define the exact clinical task, users, setting, and what the tool must never decide.</div>
+      </div>
+      <div class="gov-flow-step">
+        <div class="gov-flow-num">2</div>
+        <div class="gov-flow-title">What is the risk level?</div>
+        <div class="gov-flow-body">Judge whether wrong output could affect diagnosis, treatment, triage, consent, patient communication, or safety.</div>
+      </div>
+      <div class="gov-flow-step">
+        <div class="gov-flow-num">3</div>
+        <div class="gov-flow-title">What evidence is enough?</div>
+        <div class="gov-flow-body">Require testing appropriate to risk: usability checks, clinical validation, bias review, workflow testing, or formal evaluation.</div>
+      </div>
+      <div class="gov-flow-step">
+        <div class="gov-flow-num">4</div>
+        <div class="gov-flow-title">What happens after deployment?</div>
+        <div class="gov-flow-body">Monitor errors, drift, complaints, equity, user behaviour, guideline changes, and whether the tool should be updated or retired.</div>
+      </div>
+    </div>
+
+    <h3 class="blk">Practical governance levels for clinicians</h3>
+    <table class="gov-mini-table">
+      <thead>
+        <tr><th>Level</th><th>Examples</th><th>What is needed</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Low-risk learning or personal prototype</strong></td>
+          <td>Teaching demo, personal checklist, non-patient-identifiable calculator, mock case simulator.</td>
+          <td>Clear limitation statement, manual checking, no real patient identifiers, and no claim of clinical approval.</td>
+        </tr>
+        <tr>
+          <td><strong>Team or service workflow tool</strong></td>
+          <td>Clinic instruction generator, referral draft aid, audit tracker, departmental dashboard.</td>
+          <td>Named owner, peer review, version control, local approval, user instructions, and feedback/error-reporting route.</td>
+        </tr>
+        <tr>
+          <td><strong>Patient-facing or decision-influencing AI</strong></td>
+          <td>Triage support, diagnosis/risk prediction, treatment recommendation, patient chatbot, translation used for care.</td>
+          <td>Formal validation, privacy/security review, clinical governance approval, monitoring plan, escalation and rollback procedure.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="gov-map-card">
+      <div class="gov-map-head">
+        <div>
+          <div class="gov-map-kicker">Layered governance map</div>
+          <div class="gov-map-title">Who governs clinical AI?</div>
+        </div>
+        <div class="gov-map-badge">No single universal authority</div>
+      </div>
+      <div class="gov-map-lead">
+        Clinical AI is not governed by one body alone. Governance depends on <strong>what the tool does</strong>, <strong>whose data it touches</strong>, <strong>where it is used</strong>, and <strong>whether it can influence patient care</strong>.
+      </div>
+
+      <div class="gov-layer-grid" aria-label="Clinical AI governance layers">
+        <details class="gov-layer" open>
+          <summary><span class="gov-layer-no">1</span><span><strong>Developer / vendor</strong><small>Build responsibly</small></span></summary>
+          <p>Responsible design, documentation, cybersecurity, version control, testing, limitations, change logs, and post-deployment support.</p>
+        </details>
+        <details class="gov-layer">
+          <summary><span class="gov-layer-no">2</span><span><strong>Healthcare organisation</strong><small>Approve local use</small></span></summary>
+          <p>Clinical governance, ICT, data protection / PDPA, cybersecurity, procurement, legal, quality-and-safety, workflow fit, training, and escalation routes.</p>
+        </details>
+        <details class="gov-layer">
+          <summary><span class="gov-layer-no">3</span><span><strong>Clinician / service owner</strong><small>Use safely</small></span></summary>
+          <p>Use only for the approved purpose, check outputs, keep clinical judgment in charge, recognise unsafe use, report errors, and stop unsafe workarounds.</p>
+        </details>
+        <details class="gov-layer">
+          <summary><span class="gov-layer-no">4</span><span><strong>Regulator, when applicable</strong><small>Medical-device-like AI</small></span></summary>
+          <p>If the tool supports diagnosis, triage, risk prediction, treatment recommendation, monitoring, prioritisation, or patient-facing clinical advice, check medical device / SaMD requirements. In Malaysia, check the Medical Device Authority pathway; internationally, consider FDA SaMD, EU AI Act / medical device requirements, WHO guidance, and IMDRF principles.</p>
+        </details>
+      </div>
+
+      <div class="gov-traffic">
+        <div class="gov-traffic-item green"><b>Learning prototype</b><span>Govern locally; keep it non-clinical and non-identifiable.</span></div>
+        <div class="gov-traffic-item amber"><b>Team or service pilot</b><span>Add clinical owner, ICT/data review, user instructions, monitoring and rollback.</span></div>
+        <div class="gov-traffic-item red"><b>Patient-facing or decision-influencing</b><span>Requires validation, institutional governance, and regulatory check where applicable.</span></div>
+      </div>
+
+      <div class="gov-checkstrip">
+        <strong>Clinician’s quick test:</strong> Who owns it? Who approved it? What evidence supports it? What data does it touch? What law or regulation applies? Who monitors it? Who stops it if unsafe?
+      </div>
+      <div class="gov-map-takeaway">
+        If these answers are unclear, the tool should remain a <strong>learning prototype or controlled pilot</strong> — not routine clinical service.
+      </div>
+    </div>
+
+    <div class="gov-rule">
+      <div class="gov-rule-title">The clinician’s governance rule</div>
+      <div class="gov-rule-body">
+        Treat clinical AI according to its possible patient impact: <strong>no patient impact → prototype carefully; possible patient or workflow impact → govern before use; direct clinical decision impact → validate, approve, monitor, and be ready to stop.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- RESOURCES -->
 <section id="resources">
   <div class="wrap">
@@ -1189,6 +1387,11 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
     <h3 class="blk">Primary source</h3>
     <div class="reading-card"><div class="ricon ri-teal">JMIR</div><div class="rbody"><div class="rjournal">JMIR AI · 2026</div><div class="rtitle">Important Ethical, Technical, and Epidemiological Considerations in an AI Tool Production (ETEPAI): Scoping Review</div><div class="rnote">The foundation of this programme. Synthesises 30 frameworks into 4 stages × 3 domains. Includes probing questions, critical pointers, common pitfalls, and an AI research proposal template (Multimedia Appendix 3).</div><a class="rlink" href="https://ai.jmir.org/2026/1/e80340" target="_blank" rel="noopener">ai.jmir.org/2026/1/e80340 ↗</a></div></div>
     <div class="reading-card"><div class="ricon ri-teal">BMC</div><div class="rbody"><div class="rjournal">BMC Medicine · 2025</div><div class="rtitle">Artificial intelligence tool development: what clinicians need to know (AI-Steady Clinician source paper)</div><div class="rnote">The foundation of AI-Steady Clinician — the 9-step development cycle that ETEPAI's four stages map onto.</div><a class="rlink" href="https://doi.org/10.1186/s12916-025-04076-0" target="_blank" rel="noopener">doi.org/10.1186/s12916-025-04076-0 ↗</a></div></div>
+
+    <h3 class="blk">Governance and regulatory orientation</h3>
+    <div class="reading-card"><div class="ricon ri-blue">WHO</div><div class="rbody"><div class="rjournal">World Health Organization · 2021</div><div class="rtitle">Ethics and governance of artificial intelligence for health</div><div class="rnote">A global ethics-and-governance reference emphasising human rights, accountability, transparency, inclusiveness, and protection of patient safety.</div><a class="rlink" href="https://www.who.int/publications/i/item/9789240029200" target="_blank" rel="noopener">who.int/publications/i/item/9789240029200 ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-coral">FDA</div><div class="rbody"><div class="rjournal">US FDA · AI/ML SaMD</div><div class="rtitle">Artificial Intelligence in Software as a Medical Device</div><div class="rnote">Orientation to FDA oversight of AI/ML-enabled software as a medical device, including lifecycle and modification considerations.</div><a class="rlink" href="https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-software-medical-device" target="_blank" rel="noopener">fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-software-medical-device ↗</a></div></div>
+    <div class="reading-card"><div class="ricon ri-amber">MDA</div><div class="rbody"><div class="rjournal">Medical Device Authority Malaysia</div><div class="rtitle">Software as a Medical Device and AI medical device regulatory orientation</div><div class="rnote">For Malaysia-based clinical AI tools, developers and service leads should check whether the intended use brings the tool into medical device or SaMD territory under Malaysian regulatory requirements.</div><a class="rlink" href="https://portal.mda.gov.my/" target="_blank" rel="noopener">portal.mda.gov.my ↗</a></div></div>
 
     <h3 class="blk">Reporting frameworks referenced in ETEPAI</h3>
     <div class="reading-card"><div class="ricon ri-purple">BMJ</div><div class="rbody"><div class="rjournal">BMJ · 2024</div><div class="rtitle">TRIPOD+AI — reporting guideline for prediction model development and validation</div><div class="rnote">27-item checklist. Required for prediction model studies. Mandates separate reporting of internal and external validation performance.</div><a class="rlink" href="https://doi.org/10.1136/bmj-2023-078378" target="_blank" rel="noopener">doi.org/10.1136/bmj-2023-078378 ↗</a></div></div>
@@ -1269,9 +1472,15 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
       <div class="cs"><div class="cs-num">Session 5</div><div class="cs-text">Post-deployment — monitoring, governing, and sustaining clinical AI</div></div>
       <div class="cs"><div class="cs-num">Session 6</div><div class="cs-text">Pitfalls, team building &amp; capstone project</div></div>
     </div>
-    <a href="https://forms.gle/5WtwiWf22kqtJ8A39" target="_blank" rel="noopener" class="complete-btn">
-      Claim my certificate ↗
-    </a>
+    <div class="complete-actions">
+      <a href="https://forms.gle/5WtwiWf22kqtJ8A39" target="_blank" rel="noopener" class="complete-btn">
+        Claim my certificate ↗
+      </a>
+      <a class="complete-nav-btn idx" href="https://boonhowchew.github.io/ai-clinician-programme/">Programme Index</a>
+      <a class="complete-nav-btn ready" href="https://boonhowchew.github.io/ai-ready-clinician/">AI-Ready</a>
+      <a class="complete-nav-btn steady" href="https://boonhowchew.github.io/ai-steady-clinician/">AI-Steady</a>
+      <a class="complete-nav-btn savvy" href="https://boonhowchew.github.io/ai-savvy-clinician/">AI-Savvy</a>
+    </div>
     <div class="complete-note">
       You will be asked to confirm completion of each session, provide a brief reflection (2–3 sentences),
       and declare that you engaged honestly with all sessions. Your certificate will include a unique
@@ -1357,7 +1566,7 @@ window.addEventListener('scroll',()=>{
 });
 
 /* ── ACTIVE NAV ─────────────────── */
-const secs=['overview','session1','session2','session3','session4','session5','session6','proposal','resources','mystory'];
+const secs=['overview','session1','session2','session3','session4','session5','session6','proposal','governance','resources','mystory'];
 const navLinks=document.querySelectorAll('.nav-links a');
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
