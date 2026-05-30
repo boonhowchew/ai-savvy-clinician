@@ -1265,23 +1265,23 @@ h3.blk{font-family:var(--font-sans);font-size:1rem;font-weight:700;letter-spacin
     </div>
 
     <div class="card">
-      <div class="card-title" style="color:var(--coral-dark);">① The deployment-speed asymmetry</div>
-      <div class="card-body">Clinical AI tools are built and shipped on commercial and academic timelines. Governance structures — ethics review, institutional approval, post-market surveillance, accountability assignment — operate on entirely different timescales. Tools reach clinical workflows before accountability is assigned, before subgroup performance is tested, and before any monitoring protocol exists. By the time governance scrutiny arrives, the tool has created dependencies, sunk costs, and user habits that make withdrawal politically difficult. The governance gap is not the result of negligence; it is the predictable outcome of a speed mismatch that has not been structurally corrected.</div>
+      <div class="card-title" style="color:var(--coral-dark);">① Tools arrive faster than oversight</div>
+      <div class="card-body">AI tools are built and sold quickly. Approval, monitoring, and assigning who is responsible all take much longer. So tools often reach the clinic before anyone has tested them on local patients or set up a way to watch for problems. By the time questions are asked, staff already rely on the tool — and pulling it back becomes hard. The gap is not carelessness; it is a timing mismatch no one has fixed.</div>
     </div>
 
     <div class="card">
-      <div class="card-title" style="color:var(--coral-dark);">② The accountability diffusion problem</div>
-      <div class="card-body">When something goes wrong with a clinical AI tool, four parties each assume one of the others is responsible: developers say implementation is the hospital's problem; hospitals say vendor performance is the developer's responsibility; clinicians say they were just using an approved tool; regulators act only where the tool was formally classified. This diffusion is not resolved by good intentions — it requires explicit, documented assignment of accountability at each layer before deployment. The "no single universal authority" observation in the governance map below is descriptive of the current reality, not a recommendation: the absence of a single authority is precisely what makes each layer capable of assuming another has done the oversight.</div>
+      <div class="card-title" style="color:var(--coral-dark);">② Everyone assumes someone else is responsible</div>
+      <div class="card-body">When an AI tool causes a problem, the developer points to the hospital, the hospital points to the vendor, the clinician says the tool was already approved, and the regulator only acts if the tool was formally registered. The result is not shared responsibility — it is no responsibility. The fix is simple to state and easy to skip: name who is accountable, in writing, before the tool is used.</div>
     </div>
 
     <div class="card">
-      <div class="card-title" style="color:var(--coral-dark);">③ The SaMD classification escape hatch</div>
-      <div class="card-body">A large category of tools that functionally influence patient care deliberately avoids medical device classification by labelling themselves "clinical decision support" or "workflow tools." This is not illegal — the boundary between SaMD and non-device software is genuinely ambiguous — but it means these tools operate without mandatory pre-market validation, without post-market surveillance obligations, and without the traceability that device classification requires. Clinicians who inherit or are asked to use such tools cannot assume that the absence of regulatory classification means the tool has been adequately validated. It may simply mean it was designed to avoid that requirement.</div>
+      <div class="card-title" style="color:var(--coral-dark);">③ Many tools sidestep the rules</div>
+      <div class="card-body">Some tools that clearly affect patient care are labelled "decision support" so they don't count as a medical device. This avoids the testing, monitoring, and record-keeping that registered devices must have. It is not necessarily dishonest — the line is genuinely blurry — but it means a tool with no official classification has <strong>not</strong> necessarily been properly checked. Never assume "unregulated" means "safe."</div>
     </div>
 
     <div class="card">
-      <div class="card-title" style="color:var(--coral-dark);">④ Equity failures are the most predictable consequence</div>
-      <div class="card-body">Governance gaps harm under-represented populations most. Tools trained on non-representative data, deployed without subgroup performance audits, and monitored without equity metrics will systematically underperform for the patients already most vulnerable to health system gaps. This is not a theoretical risk — it is the documented pattern from pulse oximetry bias, dermatology AI trained predominantly on lighter skin tones, and sepsis algorithms that performed worse in rural and lower-income settings. Equity monitoring is not an optional add-on to governance: it is a core governance function, and its absence is itself a governance failure.</div>
+      <div class="card-title" style="color:var(--coral-dark);">④ The harm lands on the most vulnerable patients</div>
+      <div class="card-body">When a tool is built on data that doesn't represent your patients, and no one checks how it performs across different groups, it quietly works worst for the people already least well served. This is not hypothetical: pulse oximeters have read less accurately on darker skin, and skin-cancer AI has been trained mostly on lighter skin. Checking performance across groups is not an extra — it is part of governance, and skipping it is a failure in itself.</div>
     </div>
 
     <div class="callout callout-amber" style="margin-bottom:1.25rem;">
